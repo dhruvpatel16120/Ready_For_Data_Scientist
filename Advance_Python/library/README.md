@@ -11,7 +11,11 @@ This folder contains a comprehensive guide and demonstration of Python's most es
 - `04_itertools_demo.py`: Functions creating iterators for efficient looping.
 - `05_functools_demo.py`: Higher-order functions ($LRU$ cache, partial, etc).
 - `06_collections_demo.py`: Specialized container datatypes (namedtuple, deque, Counter).
-- `07_operator_demo.py`: Efficient functions corresponding to intrinsic operators.
+- `07_operator5. **`05_advanced.py`**: Dives into transactions, manual rollbacks, and writing custom context managers for database operations.
+6. **`06_relationships.py`**: Detailed look at Foreign Keys, One-to-Many relationships, and SQL JOINs.
+7. **`07_performance_indices.py`**: Demonstrates the performance boost from using Indexes and how to use `EXPLAIN QUERY PLAN`.
+8. **`08_export_data.py`**: Shows how to export database tables to CSV and JSON formats.
+9. **`09_custom_extensions.py`**: Demonstrates In-Memory databases and creating custom SQL functions in Python.
 - `08_heapq_demo.py`: Heap queue algorithm (min-heaps).
 - `09_bisect_demo.py`: Support for maintaining lists in sorted order.
 
@@ -42,6 +46,13 @@ This folder contains a comprehensive guide and demonstration of Python's most es
 - `25_multiprocessing_demo.py`: Parallel processing bypassing the GIL.
 - `26_asyncio_demo.py`: Asynchronous I/O with async/await.
 - `27_concurrent_futures_demo.py`: High-level interface for asynchronous execution.
+
+### ⚙️ Configuration & CLI
+- `28_dotenv_demo.py`: Managing environment variables via `.env` files.
+- `29_re_demo.py`: Regular expressions for pattern matching (`re`).
+- `30_logging_demo.py`: Application tracking and diagnostic logging.
+- `31_argparse_demo.py`: Building professional command-line interfaces.
+- `32_configparser_demo.py`: Handling INI configuration files.
 
 ---
 
