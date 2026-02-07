@@ -36,8 +36,8 @@ print("Count of 20:", numbers.count(20))
 # index() – find index of element
 print("Index of 20:", numbers.index(20))
 
-# sort() – sort list in ascending order
-numbers.sort()
+# sort() – sort list in ascending order and for descending order use reverse=True
+numbers.sort(reverse=True)
 print("After sort():", numbers)
 
 # reverse() – reverse list
@@ -47,6 +47,9 @@ print("After reverse():", numbers)
 # copy() – create a shallow copy
 copy_list = numbers.copy()
 print("Copied list:", copy_list)
+
+copy_list.append(60)
+print("After append(60):", copy_list)
 
 # clear() – remove all elements
 numbers.clear()

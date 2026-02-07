@@ -53,3 +53,29 @@ print("Length of tuple_b:", len(tuple_b))
 # concatenation
 tuple_c = tuple_a + tuple_b
 print("Concatenated tuple (a + b):", tuple_c)
+
+# Add element in Tuple 
+# Method 1: Tuple concatenation (most common)
+
+t = (1, 2, 3)
+t = t + (4,)
+print(t)
+Output:(1, 2, 3, 4)
+
+# Important detail
+# (4,) is a single-element tuple. The comma is required. Without it:
+# (4) This is just an integer, not a tuple
+
+# Method 2: Using unpacking (*) — cleaner style
+t = (1, 2, 3)
+t = (*t, 4)
+t = (0, *t)
+print(t)
+# This unpacks all elements of t and adds 4 at the end.
+# You can also add at the beginning: t = (0, *t)
+
+# Method 3: Convert to list and back (for multiple edits)
+t = (1, 2, 3)
+temp = list(t)
+temp.append(4)
+t = tuple(temp)

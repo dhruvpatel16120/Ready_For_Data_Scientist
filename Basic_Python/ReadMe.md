@@ -1,6 +1,6 @@
 # 🐍 Master Python: Basic to Intermediate
 
-Welcome to the **Basic Python** learning repository! This directory contains a curated collection of Python scripts designed to take a beginner from their first line of code to mastering essential programming concepts.
+Welcome to the **Basic Python** learning journey! This directory contains a curated collection of Python scripts designed to take a beginner from their first line of code to mastering essential programming concepts.
 
 ---
 
@@ -26,7 +26,7 @@ This repository is structured to provide hands-on examples of Python's core feat
 | 6 | `6_looping_statement.py` | `for` and `while` loops | ⭐⭐ |
 | 7 | `7_built_in_function.py` | Exploring common built-in Python functions | ⭐⭐ |
 | 8 | `8_user_define_function.py` | Defining and calling custom functions | ⭐⭐ |
-| 8.1 | `8.1_recursion_function.py` | Understanding Recursion & the Factorial problem | ⭐⭐⭐ |
+| 8.1 | `8.1_recursion_function.py` | Understanding Recursion & the Factorial problem | ⭐⭐⭐⭐ |
 | 9 | `9_Lambda_Functions.py` | Anonymous functions & one-liners | ⭐⭐⭐ |
 | 10 | `10_strings.py` | String manipulation, Slicing, & Methods | ⭐⭐ |
 | 11 | `11_lists.py` | Understanding the List data structure | ⭐⭐ |

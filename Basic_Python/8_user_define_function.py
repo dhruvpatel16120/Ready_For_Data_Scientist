@@ -32,6 +32,9 @@ def greet(name="User"):
 def total(*nums):
     return sum(nums)
 
+def total(*list):
+    return sum(list)
+
 # function call
 print("Addition:", add(5, 3))
 greet(name="Alice")

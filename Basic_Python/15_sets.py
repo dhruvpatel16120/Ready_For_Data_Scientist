@@ -28,9 +28,14 @@ print("\n----- REMOVING ELEMENTS -----")
 A.remove(10)
 print("After remove(10):", A)
 
+# remove() vs discard()
+# remove() → error if element not found
+# discard() → no error if element not found
+
 A.discard(100)  # No error if element not present
 print("After discard(100):", A)
 
+# pop() → remove any random element and return it
 removed_item = A.pop()
 print("After pop():", A)
 print("Removed item:", removed_item)
@@ -41,10 +46,10 @@ for item in A:
 print()
 
 print("\n----- SET OPERATIONS -----")
-print("Union (A | B):", A | B)
-print("Intersection (A & B):", A & B)
-print("Difference (A - B):", A - B)
-print("Symmetric Difference (A ^ B):", A ^ B)
+print("Union (A | B):", A | B) # for union |
+print("Intersection (A & B):", A & B) # for intersection &
+print("Difference (A - B):", A - B) # for difference -
+print("Symmetric Difference (A ^ B):", A ^ B) # for symmetric difference ^ (!intersection)
 
 print("\n----- SET METHODS -----")
 print("A union B:", A.union(B))
@@ -53,10 +58,13 @@ print("A difference B:", A.difference(B))
 print("A symmetric_difference B:", A.symmetric_difference(B))
 
 print("\n----- SET COMPARISON METHODS -----")
+A = {1, 2, 3, 4}
 C = {1, 2}
+D = set([20,32])
 print("C is subset of A:", C.issubset(A))
 print("A is superset of C:", A.issuperset(C))
-print("A is disjoint with B:", A.isdisjoint(B))
+print("A is disjoint with B:", A.isdisjoint(B)) # False because they have common elements
+print("D is disjoint with C:", D.isdisjoint(C)) # True because they have no common elements
 
 print("\n----- CLEAR METHOD -----")
 temp = {1, 2, 3}

@@ -13,9 +13,9 @@ print("Initial Dictionary:", student)
 print("\n----- ACCESSING ELEMENTS -----")
 
 # Access using key
-print("Name:", student["name"])
+print("Name:", student["name"]) # if key not found it will throw error
 
-# Access using get()
+# Access using get() safe method
 print("Age:", student.get("age"))
 print("Marks (safe access):", student.get("marks", "Not Found"))
 
@@ -58,7 +58,7 @@ print("Removed item:", removed_item)
 
 print("\n----- SETDEFAULT METHOD -----")
 
-# setdefault()
+# setdefault() :- retun the value of the key if key is present otherwise return the default value
 student.setdefault("country", "India")
 print("After setdefault('country'):", student)
 

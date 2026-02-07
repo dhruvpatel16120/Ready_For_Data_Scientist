@@ -40,24 +40,37 @@ print("Sorted list:", sorted(unsorted_list))
 print("Range from 0 to 5:", list(range(6)))
 
 # Using enumerate() to get index and value pairs
+# enumerate() is used to get the index and value of an iterable
+# it returns a tuple of (index, value)
 print()
 for index, value in enumerate(unsorted_list):
     print(f"Index {index}: Value {value}")
 print()
 
 # Using zip() to combine two lists
+# zip() is used to combine two or more iterables
+# it returns a tuple of (element1, element2, ...) as object
 list1 = [1, 2, 3]
 list2 = ['a', 'b', 'c']
-print("Zipped list:", list(zip(list1, list2)))
+print("Zipped list:", list(zip(list1, list2)), type(zip(list1, list2)))
+print()
 
 # Using all() to check if all elements are True
+# all() is used to check if all elements in an iterable are True
+# it returns True if all elements are True, False otherwise
 bool_list = [True, True, False]
 print("All elements True:", all(bool_list))
+print()
 
 # Using any() to check if any element is True
+# any() is used to check if any element in an iterable is True
+# it returns True if any element is True, False otherwise
 print("Any element True:", any(bool_list))
+print()
 
 # Using isinstance() to check if an object is of a specific type
+# isinstance() is used to check if an object is of a specific type
+# it returns True if the object have specified Data type, otherwise give False
 print("Is string_value a string?", isinstance(string_value, str))
 print()
 
@@ -70,20 +83,37 @@ print("Help on len function:")
 help(len)
 print()
 
-# Using reversed() to reverse a sequence
+unsorted_list = [3, 1, 4, 1, 5, 9]
+# Using reversed() to reverse a sequence 
+# reversed() is used to reverse a sequence
+# it returns a reverse iterator as object
 print("Reversed list:", list(reversed(unsorted_list)))
+print()
 
 # Using slice( ) to create a slice object
+# slice() is used to create a slice object
+# it returns a slice object
 slice_obj = slice(1 , 4)
 print("Sliced list:", unsorted_list[slice_obj])
+print()
 
-# Using map() to apply a function to all items in an iterable
+numbers = [1, 2, 3, 4, 5]
+# Using map() to apply a lambda function to all items in an iterable
+# map(lambda arguments: expression , variable) is used to apply a function to all items in an iterable
+# it returns a map object
+# lambda is a function that is used to apply a function to all items in an iterable
+# lambda arguments: expression , where arguments are like parameters and expression is like function body
 squared = map(lambda x: x**2, numbers)
 print("Squared numbers:", list(squared))
+print()
 
-# Using filter() to filter items in an iterable
+# Using filter() to filter items in an collection
+# filter(lambda arguments: expression , variable) is used to filter items in an collection
+# it returns a filter object
+# lambda arguments: expression , where arguments are like parameters and expression is like function body
 even_numbers = filter(lambda x: x % 2 == 0, numbers)
 print("Even numbers:", list(even_numbers))
+print()
 
 # Using eval() to evaluate a string expression
 expression = "2 + 3 * 4"
@@ -91,12 +121,12 @@ print("Result of eval:", eval(expression))
 
 # Using globals() to get the global symbol table
 print()
-print("Globals:", globals())
+# print("Globals:", globals())
 print()
 
 # Using locals() to get the local symbol table
 print()
-print("Locals:", locals())
+# print("Locals:", locals())
 print()
 
 a = 10
