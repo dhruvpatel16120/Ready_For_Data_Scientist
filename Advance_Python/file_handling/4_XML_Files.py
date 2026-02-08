@@ -3,7 +3,7 @@
 import xml.etree.ElementTree as ET
 
 filename = "Advance_Python/file_handling/students.xml"
-
+ 
 # 1. Creating and Writing an XML file
 print("--- Creating an XML file ---")
 root = ET.Element("University")

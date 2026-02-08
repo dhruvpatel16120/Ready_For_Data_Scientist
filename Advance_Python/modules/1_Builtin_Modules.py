@@ -1,3 +1,4 @@
+from datetime import datetime
 import math
 import datetime
 import random
@@ -13,6 +14,8 @@ print(f"Factorial of 5: {math.factorial(5)}")
 # 2. datetime module
 print("\n--- datetime module ---")
 now = datetime.datetime.now()
+month = datetime.datetime.now().month
+print(month)
 print(f"Current Date and Time: {now}")
 print(f"Current Year: {now.year}")
 print(f"Formatted Date: {now.strftime('%Y-%m-%d %H:%M:%S')}")
@@ -24,10 +27,14 @@ print(f"Random integer between 1 and 100: {random.randint(1, 100)}")
 colors = ['red', 'green', 'blue']
 print(f"Random choice from list: {random.choice(colors)}")
 
+
 # 4. os module
 print("\n--- os module ---")
 print(f"Current Working Directory: {os.getcwd()}")
 print(f"Operating System: {os.name}")
+print(os.cpu_count())
+print(os.device_encoding(fd=sys.stdout.fileno()))
+print(os.environ.get('USER'))
 
 # 5. sys module
 print("\n--- sys module ---")

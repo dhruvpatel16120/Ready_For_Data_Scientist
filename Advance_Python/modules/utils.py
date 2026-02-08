@@ -7,3 +7,10 @@ def add_numbers(a, b):
     return a + b
 
 PI_VALUE = 3.14159
+# print(__name__)
+# print(greet("John"))
+
+if __name__ == "__main__":
+    print(greet("John"))
+    print(add_numbers(10, 20))
+    print(PI_VALUE)

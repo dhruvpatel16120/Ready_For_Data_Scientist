@@ -36,7 +36,7 @@ data = [
 
 with open(filename_dict, "w", newline="") as file:
     fieldnames = ["Name", "Age"]
-    writer = csv.DictWriter(file, fieldnames=fieldnames)
+    writer = csv.DictWriter(file,fieldnames)
     writer.writeheader()
     writer.writerows(data)
     print(f"Dictionary data written to {filename_dict}")

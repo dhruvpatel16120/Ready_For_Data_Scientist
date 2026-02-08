@@ -1,3 +1,4 @@
 Hello! This is a simple text file.
 Python makes file handling very easy.
 This line was added using append mode.
+1212 @ff#$ %!2@#

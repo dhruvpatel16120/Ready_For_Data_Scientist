@@ -1,5 +1,3 @@
-import random
-
 CHOICES = {"s": "Snake", "w": "Water", "g": "Gun"}
 
 def check_win(user, computer):

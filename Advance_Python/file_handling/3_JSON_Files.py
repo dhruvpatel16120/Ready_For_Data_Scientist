@@ -10,13 +10,13 @@ user_info = {
     "age": 30,
     "skills": ["Python", "Machine Learning", "Cloud"],
     "is_student": False
-}
+} 
 
 # 1. Writing to a JSON file
 print("--- Writing to a JSON file ---")
 with open(filename, "w") as file:
     # json.dump converts dictionary to JSON and saves to file
-    json.dump(user_info, file, indent=4) 
+    json.dump(user_info, file) 
     print(f"Data saved to {filename}")
 
 # 2. Reading from a JSON file

@@ -1,7 +1,7 @@
 # File: demo_subpackages.py
 # This script demonstrates how to import from sub-packages.
 
-# Method 1: Importing specific modules from sub-packages
+# Method 1: Importing specific modules f
 from ecommerce.payments import stripe
 from ecommerce.products import inventory
 

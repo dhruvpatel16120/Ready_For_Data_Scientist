@@ -12,7 +12,7 @@ data_to_store = {
     "number": 100.5,
     "active": True
 }
-
+ 
 # 1. Writing to a Binary file
 # 'wb' mode: Write Binary
 print("--- Writing to a binary file ---")
