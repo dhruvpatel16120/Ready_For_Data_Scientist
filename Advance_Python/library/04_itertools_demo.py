@@ -8,7 +8,7 @@ Functions creating iterators for efficient looping.
 print("--- Infinite Iterators ---")
 # count(start, step)
 counter = itertools.count(10, 2)
-print(f"count: {[next(counter) for _ in range(5)]}")
+print(f"count: { [next(counter) for _ in range(5)] }")
 
 # cycle(iterable)
 cycler = itertools.cycle('ABC')
@@ -22,10 +22,10 @@ print("\n--- Combinatoric Iterators ---")
 items = 'ABC'
 
 # product() - Cartesian product
-print(f"product('AB', '12'): {list(itertools.product('AB', '12'))}")
+print(f"product('AB', '12'): { list(itertools.product('AB', '12')) }")
 
 # permutations()
-print(f"permutations('ABC', 2): {list(itertools.permutations(items, 2))}")
+print(f"permutations('ABC', 2): { list(itertools.permutations(items, 2)) }")
 
 # combinations()
 print(f"combinations('ABC', 2): {list(itertools.combinations(items, 2))}")
@@ -35,10 +35,10 @@ print(f"combinations_with_replacement('ABC', 2): {list(itertools.combinations_wi
 
 print("\n--- Iterators terminating on the shortest input sequence ---")
 # chain()
-print(f"chain([1,2], [3,4]): {list(itertools.chain([1,2], [3,4]))}")
+print(f"chain([1,2], [3,4]): {list(itertools.chain([1,2], [3,4], [5,6], [7,8]))}")
 
 # compress()
-print(f"compress('ABCDE', [1,0,1,0,1]): {list(itertools.compress('ABCDE', [1,0,1,0,1]))}")
+print(f"compress('ABCDE', [1,0,1,0,1]): {list(itertools.compress('ABCDE', [1,0,1,0,1,1,0]))}")
 
 # islice()
 print(f"islice(range(10), 2, 8, 2): {list(itertools.islice(range(10), 2, 8, 2))}")

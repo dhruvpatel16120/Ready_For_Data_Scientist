@@ -1,49 +1,100 @@
-# 🎓 Lesson 02: Constructors and Attributes
-# 🏛️ Topic: __init__ types and Variable Scoping
+# 🎓 Lesson 02: Constructors, Attributes, and Methods
+# ===================================================
 
-class Employee:
-    # 🌍 CLASS VARIABLE
-    # Shared by all instances. Useful for constants like company name.
-    company_name = "Tech Solutions Inc."
-    total_employees = 0
+class Smartphone:
+    # 🌍 1. CLASS ATTRIBUTES (Shared by all instances)
+    category = "Electronics"
+    platform = "Mobile"
 
-    # 🛠️ 1. PARAMETERIZED CONSTRUCTOR
-    def __init__(self, name, salary):
-        # 🆔 INSTANCE VARIABLES
-        # Unique to each employee
-        self.name = name
-        self.salary = salary
-        
-        # Updating a class variable using the Class name
-        Employee.total_employees += 1
-        print(f"Constructed: {self.name}")
+    # 🛠️ 2. CONSTRUCTORS (__init__)
+    
+    # In Python, you can only have ONE __init__ method. 
+    # To handle "Multiple Constructors", we use default arguments.
+    
+    def __init__(self, brand="Generic", price=0, ram="4GB"):
+        """
+        This single method acts as:
+        1. Default/Non-parameterized (if called without args)
+        2. Parameterized (if called with args)
+        """
+        # 🆔 3. INSTANCE ATTRIBUTES (Unique to each object)
+        self.brand = brand
+        self.price = price
+        self.ram = ram
+        print(f"--- Log: Device Created ({self.brand}) ---")
 
-    # 🛠️ 2. DEFAULT CONSTRUCTOR
-    # NOTE: Python doesn't support multiple __init__ methods in one class.
-    # But we can simulate a 'Non-Parameterized' constructor by giving default values:
-    # def __init__(self, name="Guest", salary=0): ...
+    # 🏃 4. TYPES OF METHODS
 
-    def display(self):
-        print(f"Name: {self.name}, Salary: {self.salary}, Company: {Employee.company_name}")
+    # A. INSTANCE METHOD: Needs 'self'. Can access instance and class variables.
+    def show_details(self):
+        print(f"Brand: {self.brand} | Price: {self.price} | RAM: {self.ram}")
+        print(f"Category: {self.category}") # Accessing class attribute
 
-# --- EXECUTION ---
+    # B. CLASS METHOD: Needs '@classmethod' and 'cls'. 
+    # Used to modify class state or create factory methods.
+    @classmethod
+    def change_platform(cls, new_platform):
+        cls.platform = new_platform
+        print(f"All devices updated to platform: {cls.platform}")
 
-# Create objects using Parameterized Constructor
-emp1 = Employee("Alice", 70000)
-emp2 = Employee("Bob", 80000)
+    # C. STATIC METHOD: Needs '@staticmethod'. No 'self' or 'cls'.
+    # Pure utility function related to the class but doesn't touch its data.
+    @staticmethod
+    def check_5g_support(area_code):
+        if area_code > 500:
+            return "5G Supported"
+        return "4G Only"
 
-emp1.display()
-emp2.display()
+# ==========================================
+# 🚀 DEMONSTRATION
+# ==========================================
 
-# 🔍 ACCESSING VARIABLES
-print(f"\nTotal Employees (Class Variable): {Employee.total_employees}")
+# 1. Using Non-parameterized Constructor (uses defaults)
+phone1 = Smartphone()
+phone1.show_details()
 
-# ⚠️ Modifying Class Variable for ALL instances
-Employee.company_name = "Global Tech"
-print(f"Updated Company (for Alice): {emp1.company_name}")
-print(f"Updated Company (for Bob): {emp2.company_name}")
+# 2. Using Parameterized Constructor
+phone2 = Smartphone("Samsung", 50000, "8GB")
+phone2.show_details()
 
-# 🔬 Modifying Instance Variable (ONLY for Bob)
-emp2.salary = 85000
-print(f"Bob's New Salary: {emp2.salary}")
-print(f"Alice's Salary (remains same): {emp1.salary}")
+# 3. Accessing Attributes
+print(f"\nPhone 1 Brand: {phone1.brand}") # Instance
+print(f"Common Category: {Smartphone.category}") # Class
+
+# 4. Calling Class Methods
+# Affects the CLASS, not just one object.
+Smartphone.change_platform("Smart Device")
+print(f"Phone 2 Platform: {phone2.platform}")
+
+# 5. Calling Static Methods
+# Called using Class Name (or instance, but Class name is better)
+result = Smartphone.check_5g_support(650)
+print(f"Network Status: {result}")
+
+class Student:
+    def __init__(self):
+        self.__name = "Jethalal"
+        self.age = "40"
+        self.gender = "Male"
+        self.city = "Mumbai"
+        self.occupation = "Owner of Gada Electronics"
+
+    def show_details(self):
+        print(f"Name: {self.__name}")
+        print(f"Age: {self.age}")
+        print(f"Gender: {self.gender}")
+        print(f"City: {self.city}")
+        print(f"Occupation: {self.occupation}")
+
+student1 = Student()
+student1.name = "Karan"
+student1.show_details()
+
+# 💡 SUMMARY TABLE:
+# -------------------------------------------------------------
+# Type           | Accesses         | Decorator      | Param
+# -------------------------------------------------------------
+# Instance Method| self (Object)    | None           | self
+# Class Method   | cls (Class)      | @classmethod   | cls
+# Static Method  | None             | @staticmethod  | None
+# -------------------------------------------------------------

@@ -17,10 +17,14 @@ print(f"exp(3): {math.exp(3)}") # e^3
 print(f"pow(2, 3): {math.pow(2, 3)}") # 2^3 (returns float)
 print(f"log(10): {math.log(10)}") # natural log
 print(f"log10(100): {math.log10(100)}") # base 10
+print(f"ln(10): {math.log(10)}") # natural log (alias for log)
 print(f"sqrt(16): {math.sqrt(16)}")
 
 print("\n--- Trigonometric Functions ---")
 angle = math.radians(90) # convert to radians
+angle_deg = math.degrees(angle) # convert back to degrees
+print(angle_deg)
+print(angle)
 print(f"sin(90deg): {math.sin(angle)}")
 print(f"cos(90deg): {math.cos(angle)}")
 print(f"tan(45deg): {math.tan(math.radians(45))}")

@@ -13,7 +13,7 @@ print(f"randrange(0, 100, 5): {random.randrange(0, 100, 5)}") # int from range
 
 print("\n--- Working with Sequences ---")
 items = ['Apple', 'Banana', 'Cherry', 'Date', 'Elderberry']
-print(f"Original items: {items}")
+print(f"Original items: {items}") 
 print(f"choice(items): {random.choice(items)}")
 print(f"choices(items, k=2): {random.choices(items, k=2)}") # with replacement
 print(f"sample(items, k=2): {random.sample(items, k=2)}") # without replacement

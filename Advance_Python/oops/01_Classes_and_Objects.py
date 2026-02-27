@@ -1,42 +1,78 @@
-# 🎓 Lesson 01: Classes and Objects
-# 🏛️ Topic: Understanding the Blueprint and the Instance
+# 🎓 Lesson 01: Classes and Objects - The Foundation of OOP
+# =========================================================
 
 """
-CLASS: A logical grouping of data and functions. It's a template or blueprint.
-OBJECT: A physical entity created from a class. It holds real data.
+CONCEPT:
+A Class is a 'blueprint' or 'template' for creating objects.
+An Object is an 'instance' of a class. (Real-world entity)
+
+Analogy: 
+Class: A Drawing of a House (Specs: rooms, windows, color)
+Object: The Actual House built from that drawing.
 """
+
+# 🏛️ 1. Defining a Class
+class Student:
+    """
+    This class represents a Student.
+    It contains data (attributes) and behavior (methods).
+    """
+    
+    # 属性 (Attributes/Data) - Hardcoded for now (bad practice, but good for learning)
+    school_name = "Oxford International" # Class Attribute (Shared by all)
+
+    # 🛠️ 2. The Method (Behavior)
+    # 'self' is a reference to the specific object being created/accessed.
+    # It must be the first parameter in any instance method.
+    def welcome(self):
+        print(f"Welcome to {self.school_name}!")
+
+    def info(self, name, age):
+        # We can pass data to methods
+        print(f"Student Name: {name}")
+        print(f"Student Age: {age}")
+
+# 🚀 3. Creating an Object (Instantiating)
+# student1 is an object of the Student class.
+student1 = Student()
+
+# 🔍 4. Accessing Attributes and Methods using the 'Dot' (.) operator
+print("--- Instance 1 ---")
+print(f"School: {student1.school_name}")
+student1.welcome()
+student1.info("Karan", 21)
+
+# 🚀 5. Creating multiple objects from the SAME class
+student2 = Student()
+print("\n--- Instance 2 ---")
+student2.info("Arjun", 22)
 
 class Car:
-    """A simple class to represent a car."""
-    pass # 'pass' is used to create an empty class for later use
+    def __init__(self):
+        self._brand = "Toyota"
+        self._model = "Camry"
+        self._year = 2022
+        # self._brand = "Toyota"
+        # self._model = "Camry"
+        # self._year = 2022
+    
+    def display(self):
+        print(f"Brand: {self._brand}")
+        print(f"Model: {self._model}")
+        print(f"Year: {self._year}")
 
-# 1. Creating Objects (Instances)
 car1 = Car()
-car2 = Car()
+car1.display()
+# print(car1.brand) # it will give error because it is protected and not publicly accessible outside the class
+# print(car1.model) # it will give error because it is protected and not publicly accessible outside the class
+# print(car1.year) # it will give error because it is protected and not publicly accessible outside the class
+print(car1._brand) # it will access because it is protected, but it is not recommended to access it outside the class
+print(car1._model) # it will access because it is protected, but it is not recommended to access it outside the class
+print(car1._year) # it will access because it is protected, but it is not recommended to access it outside the class
 
-# 2. Assigning attributes dynamically (Not recommended in professional code, but possible in Python)
-car1.brand = "Tesla"
-car1.model = "Model S"
-
-print(f"Car 1: {car1.brand} {car1.model}")
-
-# 🚀 PROPER APPROACH: Define attributes inside the class structure
-class Book:
-    def __init__(self, title, author):
-        # Attribute assignment
-        self.title = title
-        self.author = author
-
-    def get_info(self):
-        return f"'{self.title}' by {self.author}"
-
-# Creating objects properly
-book1 = Book("Python Crash Course", "Eric Matthes")
-book2 = Book("Clean Code", "Robert C. Martin")
-
-print(f"Book 1: {book1.get_info()}")
-print(f"Book 2: {book2.get_info()}")
-
-# 🔍 Key Takeaway:
-# 'self' is a reference to the current instance of the class. 
-# It allows us to access variables that belong to the class.
+# 💡 KEY TAKEAWAYS:
+# 1. Class: The Blueprint (Student)
+# 2. Object: The Reality (student1, student2)
+# 3. Method: The Action (welcome, info)
+# 4. Attribute: The Data (school_name)
+# 5. self: Points to the current object instance.
