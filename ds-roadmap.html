@@ -1,0 +1,1313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data Science Roadmap — Level 0 to 8</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #060912;
+    --surface: #0d1220;
+    --surface2: #111827;
+    --border: #1e2d45;
+    --text: #e2e8f0;
+    --muted: #64748b;
+    --accent: #00d4ff;
+    --accent2: #7c3aed;
+    --accent3: #10b981;
+    --accent4: #f59e0b;
+    --accent5: #ef4444;
+    --accent6: #ec4899;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    overflow-x: hidden;
+    line-height: 1.6;
+  }
+
+  /* HERO */
+  .hero {
+    position: relative;
+    text-align: center;
+    padding: 80px 20px 60px;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -200px; left: 50%;
+    transform: translateX(-50%);
+    width: 800px; height: 800px;
+    background: radial-gradient(circle, rgba(0,212,255,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--accent);
+    border: 1px solid rgba(0,212,255,0.3);
+    padding: 6px 16px;
+    border-radius: 2px;
+    margin-bottom: 24px;
+    text-transform: uppercase;
+  }
+
+  .hero h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(2.4rem, 6vw, 4.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -2px;
+    margin-bottom: 16px;
+  }
+
+  .hero h1 span { color: var(--accent); }
+
+  .hero p {
+    font-size: 1.1rem;
+    color: var(--muted);
+    max-width: 600px;
+    margin: 0 auto 40px;
+    font-weight: 300;
+  }
+
+  /* STATS BAR */
+  .stats-bar {
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    flex-wrap: wrap;
+    padding: 24px 20px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 60px;
+    background: var(--surface);
+  }
+
+  .stat { text-align: center; }
+  .stat-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--accent);
+    display: block;
+  }
+  .stat-label {
+    font-size: 0.75rem;
+    color: var(--muted);
+    font-family: 'Space Mono', monospace;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  /* CONTAINER */
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+  /* LEVEL CARD */
+  .level-card {
+    margin-bottom: 48px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+    transition: border-color 0.3s;
+  }
+
+  .level-card:hover { border-color: rgba(0,212,255,0.25); }
+
+  .level-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 28px 32px;
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+  }
+
+  .level-num {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    color: var(--muted);
+    min-width: 60px;
+    text-transform: uppercase;
+  }
+
+  .level-icon {
+    width: 44px; height: 44px;
+    border-radius: 3px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+  }
+
+  .level-title-wrap { flex: 1; }
+
+  .level-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+  }
+
+  .level-subtitle {
+    font-size: 0.82rem;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+
+  .level-duration {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--muted);
+    border: 1px solid var(--border);
+    padding: 4px 10px;
+    border-radius: 2px;
+    white-space: nowrap;
+  }
+
+  .toggle-btn {
+    width: 28px; height: 28px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--muted);
+    border-radius: 2px;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem;
+    transition: all 0.2s;
+    flex-shrink: 0;
+  }
+
+  .toggle-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+  .level-body {
+    display: none;
+    padding: 0 32px 32px;
+    border-top: 1px solid var(--border);
+  }
+
+  .level-body.open { display: block; }
+
+  /* SECTIONS */
+  .section { margin-top: 28px; }
+
+  .section-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    letter-spacing: -0.3px;
+  }
+
+  .section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* TOPIC GRID */
+  .topic-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 10px;
+  }
+
+  .topic-item {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 12px 14px;
+    font-size: 0.85rem;
+  }
+
+  .topic-name {
+    font-weight: 500;
+    margin-bottom: 3px;
+    color: var(--text);
+  }
+
+  .topic-desc {
+    font-size: 0.75rem;
+    color: var(--muted);
+    line-height: 1.4;
+  }
+
+  /* PILL TAGS */
+  .tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 10px; }
+
+  .tag {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.68rem;
+    padding: 3px 9px;
+    border-radius: 2px;
+    border: 1px solid;
+    letter-spacing: 0.5px;
+  }
+
+  .tag-blue { color: var(--accent); border-color: rgba(0,212,255,0.3); background: rgba(0,212,255,0.05); }
+  .tag-purple { color: #a78bfa; border-color: rgba(124,58,237,0.3); background: rgba(124,58,237,0.05); }
+  .tag-green { color: var(--accent3); border-color: rgba(16,185,129,0.3); background: rgba(16,185,129,0.05); }
+  .tag-yellow { color: var(--accent4); border-color: rgba(245,158,11,0.3); background: rgba(245,158,11,0.05); }
+  .tag-red { color: var(--accent5); border-color: rgba(239,68,68,0.3); background: rgba(239,68,68,0.05); }
+  .tag-pink { color: var(--accent6); border-color: rgba(236,72,153,0.3); background: rgba(236,72,153,0.05); }
+
+  /* INFO BOX */
+  .info-box {
+    border-left: 3px solid;
+    padding: 14px 16px;
+    border-radius: 0 3px 3px 0;
+    margin-top: 16px;
+    font-size: 0.85rem;
+  }
+
+  .info-box.tip { border-color: var(--accent3); background: rgba(16,185,129,0.06); }
+  .info-box.warn { border-color: var(--accent4); background: rgba(245,158,11,0.06); }
+  .info-box.note { border-color: var(--accent); background: rgba(0,212,255,0.06); }
+
+  .info-box strong { display: block; margin-bottom: 4px; font-family: 'Syne', sans-serif; font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; }
+
+  /* TABLE */
+  .ds-table { width: 100%; border-collapse: collapse; font-size: 0.83rem; margin-top: 12px; }
+  .ds-table th {
+    text-align: left; padding: 10px 14px;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.68rem; letter-spacing: 1px; text-transform: uppercase;
+    color: var(--muted); border-bottom: 1px solid var(--border);
+  }
+  .ds-table td { padding: 10px 14px; border-bottom: 1px solid rgba(30,45,69,0.5); color: var(--text); vertical-align: top; }
+  .ds-table tr:last-child td { border-bottom: none; }
+  .ds-table tr:hover td { background: rgba(255,255,255,0.02); }
+
+  /* LEVEL COLOR THEMES */
+  .l0 .level-header { background: linear-gradient(90deg, rgba(0,212,255,0.06) 0%, transparent 100%); }
+  .l0 .level-icon { background: rgba(0,212,255,0.1); }
+  .l0 .level-title { color: var(--accent); }
+
+  .l1 .level-header { background: linear-gradient(90deg, rgba(124,58,237,0.06) 0%, transparent 100%); }
+  .l1 .level-icon { background: rgba(124,58,237,0.1); }
+  .l1 .level-title { color: #a78bfa; }
+
+  .l2 .level-header { background: linear-gradient(90deg, rgba(16,185,129,0.06) 0%, transparent 100%); }
+  .l2 .level-icon { background: rgba(16,185,129,0.1); }
+  .l2 .level-title { color: var(--accent3); }
+
+  .l3 .level-header { background: linear-gradient(90deg, rgba(245,158,11,0.06) 0%, transparent 100%); }
+  .l3 .level-icon { background: rgba(245,158,11,0.1); }
+  .l3 .level-title { color: var(--accent4); }
+
+  .l4 .level-header { background: linear-gradient(90deg, rgba(239,68,68,0.06) 0%, transparent 100%); }
+  .l4 .level-icon { background: rgba(239,68,68,0.1); }
+  .l4 .level-title { color: var(--accent5); }
+
+  .l5 .level-header { background: linear-gradient(90deg, rgba(236,72,153,0.06) 0%, transparent 100%); }
+  .l5 .level-icon { background: rgba(236,72,153,0.1); }
+  .l5 .level-title { color: var(--accent6); }
+
+  .l6 .level-header { background: linear-gradient(90deg, rgba(99,102,241,0.06) 0%, transparent 100%); }
+  .l6 .level-icon { background: rgba(99,102,241,0.1); }
+  .l6 .level-title { color: #818cf8; }
+
+  .l7 .level-header { background: linear-gradient(90deg, rgba(34,197,94,0.06) 0%, transparent 100%); }
+  .l7 .level-icon { background: rgba(34,197,94,0.1); }
+  .l7 .level-title { color: #4ade80; }
+
+  .l8 .level-header { background: linear-gradient(90deg, rgba(251,146,60,0.06) 0%, transparent 100%); }
+  .l8 .level-icon { background: rgba(251,146,60,0.1); }
+  .l8 .level-title { color: #fb923c; }
+
+  /* SKILL METER */
+  .skill-meter { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; font-size: 0.82rem; }
+  .meter-label { min-width: 140px; color: var(--text); }
+  .meter-bar { flex: 1; height: 4px; background: var(--border); border-radius: 2px; overflow: hidden; }
+  .meter-fill { height: 100%; border-radius: 2px; }
+  .meter-pct { min-width: 36px; text-align: right; color: var(--muted); font-family: 'Space Mono', monospace; font-size: 0.68rem; }
+
+  /* TIMELINE LINE */
+  .roadmap-line {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 48px 20px;
+    border-top: 1px solid var(--border);
+    margin-top: 60px;
+  }
+
+  footer p { color: var(--muted); font-size: 0.82rem; }
+  footer strong { color: var(--accent); }
+
+  /* EXPAND ALL */
+  .expand-controls {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .ctrl-btn {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 1px;
+    padding: 7px 14px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--muted);
+    cursor: pointer;
+    border-radius: 2px;
+    text-transform: uppercase;
+    transition: all 0.2s;
+  }
+
+  .ctrl-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* SCROLL LINE */
+  .progress-line {
+    position: fixed;
+    top: 0; left: 0;
+    height: 2px;
+    background: var(--accent);
+    z-index: 999;
+    transition: width 0.1s;
+  }
+
+  @media (max-width: 600px) {
+    .level-header { padding: 20px 16px; gap: 12px; }
+    .level-body { padding: 0 16px 24px; }
+    .level-duration { display: none; }
+    .topic-grid { grid-template-columns: 1fr; }
+    .stats-bar { gap: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="progress-line" id="progressLine"></div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">Complete Mastery Guide · 2024–2026</div>
+  <h1>Data Science<br><span>Roadmap</span></h1>
+  <p>From absolute zero to Agentic AI — a field-tested learning path designed for tech-background students who want to become real Data Scientists.</p>
+</div>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stat"><span class="stat-num">9</span><span class="stat-label">Levels</span></div>
+  <div class="stat"><span class="stat-num">150+</span><span class="stat-label">Topics</span></div>
+  <div class="stat"><span class="stat-num">18–24</span><span class="stat-label">Months</span></div>
+  <div class="stat"><span class="stat-num">30+</span><span class="stat-label">Tools</span></div>
+  <div class="stat"><span class="stat-num">∞</span><span class="stat-label">Projects</span></div>
+</div>
+
+<div class="container">
+
+  <div class="expand-controls">
+    <button class="ctrl-btn" onclick="expandAll()">Expand All</button>
+    <button class="ctrl-btn" onclick="collapseAll()">Collapse All</button>
+  </div>
+
+  <div class="roadmap-line">
+
+    <!-- ══════════════════════════════════════════════════ -->
+    <!-- LEVEL 0: FOUNDATION -->
+    <!-- ══════════════════════════════════════════════════ -->
+    <div class="level-card l0">
+      <div class="level-header" onclick="toggle(this)">
+        <span class="level-num">Level 0</span>
+        <div class="level-icon">🧱</div>
+        <div class="level-title-wrap">
+          <div class="level-title">Foundation</div>
+          <div class="level-subtitle">Python · DSA · Mathematics</div>
+        </div>
+        <span class="level-duration">2–3 Months</span>
+        <button class="toggle-btn">+</button>
+      </div>
+      <div class="level-body">
+
+        <!-- PYTHON -->
+        <div class="section">
+          <div class="section-title">🐍 Python Programming</div>
+
+          <div class="info-box note">
+            <strong>Why Python First?</strong>
+            Python is the lingua franca of Data Science. Every library — NumPy, Pandas, TensorFlow, LangChain — is Python-native. Master this first, everything downstream becomes easier.
+          </div>
+
+          <div style="margin-top:16px;">
+            <div class="section-title" style="font-size:0.85rem; margin-bottom:10px;">Basic Topics</div>
+            <div class="topic-grid">
+              <div class="topic-item"><div class="topic-name">Variables & Data Types</div><div class="topic-desc">int, float, str, bool, type casting, type checking</div></div>
+              <div class="topic-item"><div class="topic-name">Operators</div><div class="topic-desc">Arithmetic, comparison, logical, bitwise, assignment</div></div>
+              <div class="topic-item"><div class="topic-name">Control Flow</div><div class="topic-desc">if/elif/else, while loops, for loops, break/continue/pass</div></div>
+              <div class="topic-item"><div class="topic-name">Functions</div><div class="topic-desc">def, return, *args, **kwargs, default args, scope (LEGB)</div></div>
+              <div class="topic-item"><div class="topic-name">Data Structures</div><div class="topic-desc">List, Tuple, Set, Dictionary — CRUD operations, comprehensions</div></div>
+              <div class="topic-item"><div class="topic-name">String Manipulation</div><div class="topic-desc">Slicing, format strings (f-strings), methods, regex basics</div></div>
+              <div class="topic-item"><div class="topic-name">File I/O</div><div class="topic-desc">Reading/writing .txt, .csv, .json files</div></div>
+              <div class="topic-item"><div class="topic-name">Error Handling</div><div class="topic-desc">try/except/finally, custom exceptions, exception hierarchy</div></div>
+              <div class="topic-item"><div class="topic-name">Modules & Packages</div><div class="topic-desc">import, pip, creating your own module, __init__.py</div></div>
+            </div>
+
+            <div class="section-title" style="font-size:0.85rem; margin-top:20px; margin-bottom:10px;">Advanced Topics</div>
+            <div class="topic-grid">
+              <div class="topic-item"><div class="topic-name">OOP (Object Oriented Programming)</div><div class="topic-desc">Classes, objects, __init__, inheritance, polymorphism, dunder methods, encapsulation</div></div>
+              <div class="topic-item"><div class="topic-name">Decorators & Closures</div><div class="topic-desc">@property, @staticmethod, @classmethod, function wrappers</div></div>
+              <div class="topic-item"><div class="topic-name">Generators & Iterators</div><div class="topic-desc">yield, __iter__, __next__, lazy evaluation, memory efficiency</div></div>
+              <div class="topic-item"><div class="topic-name">Lambda & Functional</div><div class="topic-desc">map(), filter(), reduce(), lambda expressions</div></div>
+              <div class="topic-item"><div class="topic-name">Context Managers</div><div class="topic-desc">with statement, __enter__/__exit__, contextlib</div></div>
+              <div class="topic-item"><div class="topic-name">Concurrency</div><div class="topic-desc">threading, multiprocessing, asyncio (basics for API calls)</div></div>
+              <div class="topic-item"><div class="topic-name">Type Hints</div><div class="topic-desc">typing module, annotations, mypy (used in production DS code)</div></div>
+              <div class="topic-item"><div class="topic-name">Virtual Environments</div><div class="topic-desc">venv, conda, requirements.txt, dependency management</div></div>
+              <div class="topic-item"><div class="topic-name">Testing</div><div class="topic-desc">unittest, pytest basics — essential for production pipelines</div></div>
+            </div>
+
+            <div class="tags" style="margin-top:14px;">
+              <span class="tag tag-blue">Python 3.10+</span>
+              <span class="tag tag-blue">Jupyter Notebook</span>
+              <span class="tag tag-blue">VS Code</span>
+              <span class="tag tag-green">PyCharm</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- DSA -->
+        <div class="section">
+          <div class="section-title">🔗 Data Structures & Algorithms</div>
+          <div class="info-box warn">
+            <strong>Why DSA for Data Science?</strong>
+            DS interviews at top companies include DSA rounds. Also, understanding time/space complexity helps you write efficient data pipelines and choose the right algorithm.
+          </div>
+          <div class="topic-grid" style="margin-top:14px;">
+            <div class="topic-item"><div class="topic-name">Arrays & Strings</div><div class="topic-desc">Sliding window, two pointers, subarray problems</div></div>
+            <div class="topic-item"><div class="topic-name">Linked Lists</div><div class="topic-desc">Singly, doubly, cycle detection, reversal</div></div>
+            <div class="topic-item"><div class="topic-name">Stack & Queue</div><div class="topic-desc">Applications in parsing, BFS, expression evaluation</div></div>
+            <div class="topic-item"><div class="topic-name">Hashing</div><div class="topic-desc">HashMap, HashSet, collision handling, frequency counting</div></div>
+            <div class="topic-item"><div class="topic-name">Trees</div><div class="topic-desc">Binary trees, BST, tree traversals, height/depth problems</div></div>
+            <div class="topic-item"><div class="topic-name">Graphs</div><div class="topic-desc">BFS, DFS, adjacency matrix/list, connected components</div></div>
+            <div class="topic-item"><div class="topic-name">Sorting Algorithms</div><div class="topic-desc">Bubble, Merge, Quick, Heap sort — complexities and use cases</div></div>
+            <div class="topic-item"><div class="topic-name">Searching</div><div class="topic-desc">Binary search, search in rotated arrays</div></div>
+            <div class="topic-item"><div class="topic-name">Recursion & Backtracking</div><div class="topic-desc">Base cases, recursive trees, memoization intro</div></div>
+            <div class="topic-item"><div class="topic-name">Dynamic Programming (Basics)</div><div class="topic-desc">Fibonacci, knapsack, LCS — memoization & tabulation</div></div>
+            <div class="topic-item"><div class="topic-name">Big-O Complexity</div><div class="topic-desc">Time & space complexity analysis — critical thinking skill</div></div>
+          </div>
+          <div class="info-box tip" style="margin-top:14px;">
+            <strong>Practical Target</strong>
+            Solve 80–100 problems on LeetCode (Easy/Medium) focusing on arrays, strings, hashmaps. This is sufficient for DS roles. You don't need competitive programming level.
+          </div>
+        </div>
+
+        <!-- MATHS -->
+        <div class="section">
+          <div class="section-title">📐 Mathematics for Data Science</div>
+
+          <table class="ds-table">
+            <thead><tr><th>Domain</th><th>Key Topics</th><th>Why It Matters</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><strong>Linear Algebra</strong></td>
+                <td>Vectors, matrices, matrix multiplication, transpose, inverse, determinant, eigenvalues & eigenvectors, SVD, dot product, projections</td>
+                <td>Core of ML (weights = matrices). PCA, neural networks, embeddings all use LA.</td>
+              </tr>
+              <tr>
+                <td><strong>Probability</strong></td>
+                <td>Sample space, events, conditional probability, Bayes' theorem, independence, random variables, PMF, PDF, CDF, joint & marginal distributions, expectation, variance</td>
+                <td>Foundation of ML models, Naive Bayes, probabilistic classifiers, uncertainty estimation.</td>
+              </tr>
+              <tr>
+                <td><strong>Statistics</strong></td>
+                <td>Descriptive stats (mean, median, mode, std, IQR), Inferential stats, distributions (Normal, Binomial, Poisson), hypothesis testing, p-value, confidence intervals, correlation, regression coefficients</td>
+                <td>Data analysis, A/B testing, understanding model outputs, EDA.</td>
+              </tr>
+              <tr>
+                <td><strong>Calculus</strong></td>
+                <td>Derivatives, chain rule, partial derivatives, gradient, gradient descent intuitively, minima/maxima, cost function optimization</td>
+                <td>Backpropagation in neural networks, optimization algorithms (SGD, Adam).</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="info-box tip" style="margin-top:14px;">
+            <strong>Resource Tip</strong>
+            3Blue1Brown's "Essence of Linear Algebra" and "Essence of Calculus" on YouTube are gold. StatQuest by Josh Starmer for statistics. These build deep intuition, not just formulas.
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════ -->
+    <!-- LEVEL 1: DATA PREPROCESSING -->
+    <!-- ══════════════════════════════════════════════════ -->
+    <div class="level-card l1">
+      <div class="level-header" onclick="toggle(this)">
+        <span class="level-num">Level 1</span>
+        <div class="level-icon">🧹</div>
+        <div class="level-title-wrap">
+          <div class="level-title">Data Preprocessing</div>
+          <div class="level-subtitle">NumPy · Pandas · Data Science Theory</div>
+        </div>
+        <span class="level-duration">1.5–2 Months</span>
+        <button class="toggle-btn">+</button>
+      </div>
+      <div class="level-body">
+
+        <div class="section">
+          <div class="section-title">🔢 NumPy — Numerical Computing</div>
+          <div class="topic-grid">
+            <div class="topic-item"><div class="topic-name">ndarray Creation</div><div class="topic-desc">np.array(), np.zeros(), np.ones(), np.arange(), np.linspace(), np.random</div></div>
+            <div class="topic-item"><div class="topic-name">Array Attributes</div><div class="topic-desc">shape, dtype, ndim, size, itemsize</div></div>
+            <div class="topic-item"><div class="topic-name">Indexing & Slicing</div><div class="topic-desc">1D, 2D, 3D slicing, boolean indexing, fancy indexing</div></div>
+            <div class="topic-item"><div class="topic-name">Reshaping</div><div class="topic-desc">reshape(), flatten(), ravel(), squeeze(), expand_dims()</div></div>
+            <div class="topic-item"><div class="topic-name">Broadcasting</div><div class="topic-desc">Shape compatibility rules, automatic expansion — CRITICAL concept</div></div>
+            <div class="topic-item"><div class="topic-name">Mathematical Ops</div><div class="topic-desc">Element-wise ops, np.dot(), np.matmul(), ufuncs, np.linalg</div></div>
+            <div class="topic-item"><div class="topic-name">Aggregation</div><div class="topic-desc">sum, mean, std, min, max, argmin, argmax — with axis param</div></div>
+            <div class="topic-item"><div class="topic-name">Stacking & Splitting</div><div class="topic-desc">np.concatenate(), np.vstack(), np.hstack(), np.split()</div></div>
+            <div class="topic-item"><div class="topic-name">Sorting & Searching</div><div class="topic-desc">np.sort(), np.argsort(), np.where(), np.unique()</div></div>
+            <div class="topic-item"><div class="topic-name">Random Module</div><div class="topic-desc">np.random.seed(), rand, randn, randint, shuffle, choice</div></div>
+            <div class="topic-item"><div class="topic-name">Vectorization</div><div class="topic-desc">Why loops are slow; vectorized operations for speed</div></div>
+            <div class="topic-item"><div class="topic-name">Memory Views</div><div class="topic-desc">Views vs copies, memory efficiency, strides</div></div>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-title">🐼 Pandas — Data Manipulation</div>
+          <div class="topic-grid">
+            <div class="topic-item"><div class="topic-name">Series & DataFrame</div><div class="topic-desc">Creation, index, columns, dtypes, info(), describe()</div></div>
+            <div class="topic-item"><div class="topic-name">Reading Data</div><div class="topic-desc">read_csv(), read_excel(), read_json(), read_sql(), read_parquet()</div></div>
+            <div class="topic-item"><div class="topic-name">Indexing</div><div class="topic-desc">loc[], iloc[], at[], iat[], boolean masking</div></div>
+            <div class="topic-item"><div class="topic-name">Data Cleaning</div><div class="topic-desc">isnull(), fillna(), dropna(), duplicated(), drop_duplicates()</div></div>
+            <div class="topic-item"><div class="topic-name">String Operations</div><div class="topic-desc">str accessor — split, strip, contains, replace, extract</div></div>
+            <div class="topic-item"><div class="topic-name">Datetime Handling</div><div class="topic-desc">to_datetime(), dt accessor, resample(), date_range()</div></div>
+            <div class="topic-item"><div class="topic-name">GroupBy & Aggregation</div><div class="topic-desc">groupby(), agg(), transform(), apply(), pivot_table()</div></div>
+            <div class="topic-item"><div class="topic-name">Merging & Joining</div><div class="topic-desc">merge(), join(), concat() — inner/outer/left/right</div></div>
+            <div class="topic-item"><div class="topic-name">Reshaping</div><div class="topic-desc">melt(), stack(), unstack(), pivot()</div></div>
+            <div class="topic-item"><div class="topic-name">Apply & Map</div><div class="topic-desc">apply(), map(), applymap() — custom transformations</div></div>
+            <div class="topic-item"><div class="topic-name">Feature Engineering</div><div class="topic-desc">Creating new columns, binning, encoding, scaling with Pandas</div></div>
+            <div class="topic-item"><div class="topic-name">Performance</div><div class="topic-desc">vectorized ops, avoid for-loops, use .query(), category dtype</div></div>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-title">📚 Data Science Theory Fundamentals</div>
+          <div class="topic-grid">
+            <div class="topic-item"><div class="topic-name">What is Data Science?</div><div class="topic-desc">Definition, scope, difference from ML/AI/Analytics</div></div>
+            <div class="topic-item"><div class="topic-name">Types of Data</div><div class="topic-desc">Structured, Semi-structured, Unstructured; Nominal, Ordinal, Interval, Ratio</div></div>
+            <div class="topic-item"><div class="topic-name">Data Quality</div><div class="topic-desc">Accuracy, completeness, consistency, timeliness</div></div>
+            <div class="topic-item"><div class="topic-name">Data Preprocessing Pipeline</div><div class="topic-desc">Missing values, outliers, encoding, normalization, scaling</div></div>
+            <div class="topic-item"><div class="topic-name">Feature Engineering</div><div class="topic-desc">Domain-driven features, interaction terms, polynomial features</div></div>
+            <div class="topic-item"><div class="topic-name">Dimensionality Reduction</div><div class="topic-desc">PCA intro, curse of dimensionality, feature selection</div></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════ -->
+    <!-- LEVEL 2: DATA VISUALIZATION -->
+    <!-- ══════════════════════════════════════════════════ -->
+    <div class="level-card l2">
+      <div class="level-header" onclick="toggle(this)">
+        <span class="level-num">Level 2</span>
+        <div class="level-icon">📊</div>
+        <div class="level-title-wrap">
+          <div class="level-title">Data Visualization</div>
+          <div class="level-subtitle">Matplotlib · Seaborn · Power BI · Tableau</div>
+        </div>
+        <span class="level-duration">3–4 Weeks</span>
+        <button class="toggle-btn">+</button>
+      </div>
+      <div class="level-body">
+
+        <div class="section">
+          <div class="section-title">🎨 Theory & Principles of Visualization</div>
+          <div class="topic-grid">
+            <div class="topic-item"><div class="topic-name">Why Visualize?</div><div class="topic-desc">Communicating data stories, pattern discovery, stakeholder reporting</div></div>
+            <div class="topic-item"><div class="topic-name">Chart Selection Framework</div><div class="topic-desc">When to use bar, line, scatter, pie, heatmap, histogram, box plot</div></div>
+            <div class="topic-item"><div class="topic-name">Gestalt Principles</div><div class="topic-desc">Proximity, similarity, continuity — how humans perceive charts</div></div>
+            <div class="topic-item"><div class="topic-name">Data-Ink Ratio</div><div class="topic-desc">Edward Tufte's principles — remove chartjunk, maximize clarity</div></div>
+            <div class="topic-item"><div class="topic-name">Exploratory vs Explanatory</div><div class="topic-desc">EDA for yourself vs polished charts for stakeholders</div></div>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-title">📈 Matplotlib</div>
+          <div class="topic-grid">
+            <div class="topic-item"><div class="topic-name">Figure & Axes API</div><div class="topic-desc">fig, ax = plt.subplots() — OOP approach is the right way</div></div>
+            <div class="topic-item"><div class="topic-name">Basic Charts</div><div class="topic-desc">Line, bar, barh, scatter, histogram, pie, stem, step</div></div>
+            <div class="topic-item"><div class="topic-name">Customization</div><div class="topic-desc">Colors, markers, linestyles, labels, titles, legends, grid</div></div>
+            <div class="topic-item"><div class="topic-name">Subplots & Layouts</div><div class="topic-desc">plt.subplots(m,n), gridspec, tight_layout</div></div>
+            <div class="topic-item"><div class="topic-name">Annotations</div><div class="topic-desc">ax.annotate(), ax.text(), arrows, highlighting data points</div></div>
+            <div class="topic-item"><div class="topic-name">Saving & Export</div><div class="topic-desc">savefig(), DPI, formats (PNG, SVG, PDF)</div></div>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-title">🌊 Seaborn</div>
+          <div class="topic-grid">
+            <div class="topic-item"><div class="topic-name">Distribution Plots</div><div class="topic-desc">histplot, kdeplot, ecdfplot, rugplot</div></div>
+            <div class="topic-item"><div class="topic-name">Relational Plots</div><div class="topic-desc">scatterplot, lineplot — hue, size, style parameters</div></div>
+            <div class="topic-item"><div class="topic-name">Categorical Plots</div><div class="topic-desc">barplot, boxplot, violinplot, stripplot, swarmplot, countplot</div></div>
+            <div class="topic-item"><div class="topic-name">Matrix Plots</div><div class="topic-desc">heatmap, clustermap — correlation matrices</div></div>
+            <div class="topic-item"><div class="topic-name">Pair & Joint Plots</div><div class="topic-desc">pairplot(), jointplot() — EDA power tools</div></div>
+            <div class="topic-item"><div class="topic-name">FacetGrid</div><div class="topic-desc">Multi-panel plots by category — storytelling with subsets</div></div>
+            <div class="topic-item"><div class="topic-name">Themes</div><div class="topic-desc">set_theme(), set_style(), set_palette() — publication-quality plots</div></div>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-title">📊 Power BI (Fundamentals)</div>
+          <div class="topic-grid">
+            <div class="topic-item"><div class="topic-name">Power BI Architecture</div><div class="topic-desc">Desktop, Service, Mobile; data flow concepts</div></div>
+            <div class="topic-item"><div class="topic-name">Data Connections</div><div class="topic-desc">Import vs DirectQuery, connecting Excel/SQL/APIs</div></div>
+            <div class="topic-item"><div class="topic-name">Power Query (ETL)</div><div class="topic-desc">Data transformations without code — M language basics</div></div>
+            <div class="topic-item"><div class="topic-name">DAX Basics</div><div class="topic-desc">SUM, CALCULATE, FILTER, ALL — measures vs calculated columns</div></div>
+            <div class="topic-item"><div class="topic-name">Visualizations</div><div class="topic-desc">Charts, slicers, maps, KPI cards, conditional formatting</div></div>
+            <div class="topic-item"><div class="topic-name">Dashboard Building</div><div class="topic-desc">Report vs Dashboard, publishing to Power BI Service</div></div>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-title">📉 Tableau (Fundamentals)</div>
+          <div class="topic-grid">
+            <div class="topic-item"><div class="topic-name">Tableau Interface</div><div class="topic-desc">Dimensions vs Measures, Rows/Columns shelf, Marks card</div></div>
+            <div class="topic-item"><div class="topic-name">Connecting Data</div><div class="topic-desc">Live vs Extract connections, joining data sources</div></div>
+            <div class="topic-item"><div class="topic-name">Chart Types</div><div class="topic-desc">Show Me panel, building bar/line/scatter/map charts</div></div>
+            <div class="topic-item"><div class="topic-name">Filters & Parameters</div><div class="topic-desc">Context filters, dynamic parameters, filter hierarchy</div></div>
+            <div class="topic-item"><div class="topic-name">Calculated Fields</div><div class="topic-desc">Basic formulas, LOD expressions (FIXED, INCLUDE, EXCLUDE)</div></div>
+            <div class="topic-item"><div class="topic-name">Dashboard Design</div><div class="topic-desc">Layouts, actions, publishing to Tableau Public</div></div>
+          </div>
+          <div class="info-box tip" style="margin-top:14px;">
+            <strong>Project Idea</strong>
+            Build an end-to-end dashboard: load a real Kaggle dataset → clean with Pandas → visualize in Seaborn for EDA → build a Power BI / Tableau dashboard for business reporting.
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════ -->
+    <!-- LEVEL 3: DBMS & DATA WAREHOUSING -->
+    <!-- ══════════════════════════════════════════════════ -->
+    <div class="level-card l3">
+      <div class="level-header" onclick="toggle(this)">
+        <span class="level-num">Level 3</span>
+        <div class="level-icon">🗄️</div>
+        <div class="level-title-wrap">
+          <div class="level-title">DBMS, Data Engineering & Cloud</div>
+          <div class="level-subtitle">SQL · DBMS · Big Data · Cloud Computing</div>
+        </div>
+        <span class="level-duration">2–3 Months</span>
+        <button class="toggle-btn">+</button>
+      </div>
+      <div class="level-body">
+
+        <div class="section">
+          <div class="section-title">🗃️ SQL — Basic to Advanced</div>
+          <div class="topic-grid">
+            <div class="topic-item"><div class="topic-name">DDL Commands</div><div class="topic-desc">CREATE, ALTER, DROP, TRUNCATE — table schema management</div></div>
+            <div class="topic-item"><div class="topic-name">DML Commands</div><div class="topic-desc">SELECT, INSERT, UPDATE, DELETE with conditions</div></div>
+            <div class="topic-item"><div class="topic-name">Filtering & Sorting</div><div class="topic-desc">WHERE, AND/OR/NOT, BETWEEN, IN, LIKE, IS NULL, ORDER BY</div></div>
+            <div class="topic-item"><div class="topic-name">Aggregations</div><div class="topic-desc">GROUP BY, HAVING, COUNT, SUM, AVG, MIN, MAX</div></div>
+            <div class="topic-item"><div class="topic-name">JOINs</div><div class="topic-desc">INNER, LEFT, RIGHT, FULL OUTER, CROSS, SELF join — with diagrams</div></div>
+            <div class="topic-item"><div class="topic-name">Subqueries</div><div class="topic-desc">Correlated vs non-correlated, EXISTS, IN with subqueries</div></div>
+            <div class="topic-item"><div class="topic-name">Window Functions</div><div class="topic-desc">ROW_NUMBER, RANK, DENSE_RANK, LEAD, LAG, PARTITION BY — CRITICAL for DS</div></div>
+            <div class="topic-item"><div class="topic-name">CTEs</div><div class="topic-desc">WITH clause, recursive CTEs, chaining CTEs for readability</div></div>
+            <div class="topic-item"><div class="topic-name">Indexes</div><div class="topic-desc">B-tree, composite, unique indexes — query optimization</div></div>
+            <div class="topic-item"><div class="topic-name">Views & Stored Procedures</div><div class="topic-desc">Virtual tables, reusable logic, parameterized procedures</div></div>
+            <div class="topic-item"><div class="topic-name">Transactions & ACID</div><div class="topic-desc">BEGIN, COMMIT, ROLLBACK, SAVEPOINT, isolation levels</div></div>
+            <div class="topic-item"><div class="topic-name">SQL for Data Analysis</div><div class="topic-desc">Date functions, string functions, CASE WHEN, COALESCE, NULLIF</div></div>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-title">🏛️ DBMS — Zero to Full Flash</div>
+          <div class="topic-grid">
+            <div class="topic-item"><div class="topic-name">Database Fundamentals</div><div class="topic-desc">DBMS vs RDBMS vs NoSQL, 3-schema architecture, data abstraction</div></div>
+            <div class="topic-item"><div class="topic-name">ER Modeling</div><div class="topic-desc">Entities, attributes, relationships, cardinality, ER diagrams</div></div>
+            <div class="topic-item"><div class="topic-name">Normalization</div><div class="topic-desc">1NF, 2NF, 3NF, BCNF — eliminating redundancy</div></div>
+            <div class="topic-item"><div class="topic-name">Relational Algebra</div><div class="topic-desc">Select, Project, Join, Union, Difference — theoretical foundation</div></div>
+            <div class="topic-item"><div class="topic-name">Indexing & Hashing</div><div class="topic-desc">Primary vs secondary, clustered vs non-clustered, hash-based</div></div>
+            <div class="topic-item"><div class="topic-name">Query Optimization</div><div class="topic-desc">Execution plans, cost estimation, EXPLAIN/ANALYZE</div></div>
+            <div class="topic-item"><div class="topic-name">Concurrency Control</div><div class="topic-desc">Locks, deadlocks, 2PL, MVCC, isolation levels</div></div>
+            <div class="topic-item"><div class="topic-name">NoSQL Databases</div><div class="topic-desc">Document (MongoDB), Key-Value (Redis), Column (Cassandra), Graph (Neo4j)</div></div>
+            <div class="topic-item"><div class="topic-name">CAP Theorem</div><div class="topic-desc">Consistency, Availability, Partition tolerance trade-offs</div></div>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-title">🌊 Big Data & Data Lakes</div>
+          <div class="topic-grid">
+            <div class="topic-item"><div class="topic-name">Big Data Concepts</div><div class="topic-desc">5Vs: Volume, Velocity, Variety, Veracity, Value; batch vs stream</div></div>
+            <div class="topic-item"><div class="topic-name">Hadoop Ecosystem</div><div class="topic-desc">HDFS architecture, MapReduce paradigm, YARN, Hive, HBase</div></div>
+            <div class="topic-item"><div class="topic-name">Apache Spark</div><div class="topic-desc">RDDs, DataFrames, SparkSQL, PySpark basics, lazy evaluation, DAG</div></div>
+            <div class="topic-item"><div class="topic-name">Data Lake Architecture</div><div class="topic-desc">Raw/Curated/Consumption zones, Delta Lake, Apache Iceberg</div></div>
+            <div class="topic-item"><div class="topic-name">Data Warehousing</div><div class="topic-desc">Star schema, snowflake schema, fact/dimension tables, OLAP vs OLTP</div></div>
+            <div class="topic-item"><div class="topic-name">ETL vs ELT</div><div class="topic-desc">Traditional ETL vs modern ELT pipelines, dbt basics</div></div>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-title">☁️ Cloud Computing (Zero to Intermediate)</div>
+          <div class="topic-grid">
+            <div class="topic-item"><div class="topic-name">Cloud Fundamentals</div><div class="topic-desc">IaaS, PaaS, SaaS; public, private, hybrid cloud; on-premise vs cloud</div></div>
+            <div class="topic-item"><div class="topic-name">AWS for Data Science</div><div class="topic-desc">S3 (storage), EC2 (compute), RDS, Redshift, SageMaker, Lambda basics</div></div>
+            <div class="topic-item"><div class="topic-name">GCP for Data Science</div><div class="topic-desc">BigQuery, Cloud Storage, Vertex AI, Dataflow (Apache Beam)</div></div>
+            <div class="topic-item"><div class="topic-name">Azure for Data Science</div><div class="topic-desc">Azure Data Factory, Azure ML, Blob Storage, Synapse Analytics</div></div>
+            <div class="topic-item"><div class="topic-name">Docker Basics</div><div class="topic-desc">Containers vs VMs, Dockerfile, images, containers — packaging ML models</div></div>
+            <div class="topic-item"><div class="topic-name">Cloud Storage Patterns</div><div class="topic-desc">Object vs block storage, data lifecycle policies, cost optimization</div></div>
+          </div>
+          <div class="tags" style="margin-top:10px;">
+            <span class="tag tag-yellow">AWS Free Tier</span>
+            <span class="tag tag-yellow">GCP Free Tier</span>
+            <span class="tag tag-yellow">Azure Student Credits</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════ -->
+    <!-- LEVEL 4: MACHINE LEARNING -->
+    <!-- ══════════════════════════════════════════════════ -->
+    <div class="level-card l4">
+      <div class="level-header" onclick="toggle(this)">
+        <span class="level-num">Level 4</span>
+        <div class="level-icon">🤖</div>
+        <div class="level-title-wrap">
+          <div class="level-title">Machine Learning</div>
+          <div class="level-subtitle">Lifecycle · Algorithms · Supervised · Unsupervised · RL</div>
+        </div>
+        <span class="level-duration">3–4 Months</span>
+        <button class="toggle-btn">+</button>
+      </div>
+      <div class="level-body">
+
+        <div class="section">
+          <div class="section-title">🔄 ML Lifecycle</div>
+          <div class="topic-grid">
+            <div class="topic-item"><div class="topic-name">Problem Framing</div><div class="topic-desc">Business problem → ML problem mapping, success metrics</div></div>
+            <div class="topic-item"><div class="topic-name">Data Collection</div><div class="topic-desc">Sources, APIs, scraping, synthetic data</div></div>
+            <div class="topic-item"><div class="topic-name">EDA & Preprocessing</div><div class="topic-desc">Exploring patterns, cleaning, feature engineering</div></div>
+            <div class="topic-item"><div class="topic-name">Model Selection</div><div class="topic-desc">Baseline models, complexity vs performance trade-off</div></div>
+            <div class="topic-item"><div class="topic-name">Training & Validation</div><div class="topic-desc">Train/val/test split, k-fold CV, stratified sampling</div></div>
+            <div class="topic-item"><div class="topic-name">Evaluation</div><div class="topic-desc">Metrics, confusion matrix, ROC-AUC, bias-variance</div></div>
+            <div class="topic-item"><div class="topic-name">Hyperparameter Tuning</div><div class="topic-desc">Grid Search, Random Search, Bayesian Optimization, Optuna</div></div>
+            <div class="topic-item"><div class="topic-name">Deployment</div><div class="topic-desc">Saving models (pickle, joblib), serving with Flask/FastAPI</div></div>
+            <div class="topic-item"><div class="topic-name">Monitoring</div><div class="topic-desc">Data drift, model drift, retraining triggers</div></div>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-title">📈 Supervised Learning</div>
+          <table class="ds-table">
+            <thead><tr><th>Algorithm</th><th>Type</th><th>When to Use</th><th>Key Concepts</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Linear Regression</strong></td><td>Regression</td><td>Continuous target, linear relationship</td><td>OLS, coefficients, R², MSE, RMSE</td></tr>
+              <tr><td><strong>Logistic Regression</strong></td><td>Classification</td><td>Binary/multiclass, interpretable</td><td>Sigmoid, log-loss, decision boundary</td></tr>
+              <tr><td><strong>Decision Trees</strong></td><td>Both</td><td>Non-linear, interpretable</td><td>Gini/Entropy, depth, pruning, CART</td></tr>
+              <tr><td><strong>Random Forest</strong></td><td>Both</td><td>Tabular data, robust to noise</td><td>Bagging, feature importance, OOB error</td></tr>
+              <tr><td><strong>Gradient Boosting</strong></td><td>Both</td><td>Competitions, tabular data</td><td>XGBoost, LightGBM, CatBoost, learning rate</td></tr>
+              <tr><td><strong>SVM</strong></td><td>Both</td><td>High-dimensional, small datasets</td><td>Margin, kernel trick, C & gamma params</td></tr>
+              <tr><td><strong>KNN</strong></td><td>Both</td><td>Baseline, recommendation</td><td>Distance metrics, K choice, scalability limits</td></tr>
+              <tr><td><strong>Naive Bayes</strong></td><td>Classification</td><td>NLP, spam detection</td><td>Bayes theorem, conditional independence</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="section">
+          <div class="section-title">🔍 Unsupervised Learning</div>
+          <div class="topic-grid">
+            <div class="topic-item"><div class="topic-name">K-Means Clustering</div><div class="topic-desc">Centroid-based, elbow method, inertia, silhouette score</div></div>
+            <div class="topic-item"><div class="topic-name">DBSCAN</div><div class="topic-desc">Density-based, handles arbitrary shapes, noise detection</div></div>
+            <div class="topic-item"><div class="topic-name">Hierarchical Clustering</div><div class="topic-desc">Agglomerative, dendrogram, linkage methods</div></div>
+            <div class="topic-item"><div class="topic-name">PCA</div><div class="topic-desc">Variance explained, scree plot, 2D/3D projection</div></div>
+            <div class="topic-item"><div class="topic-name">t-SNE & UMAP</div><div class="topic-desc">High-dim visualization, embedding exploration</div></div>
+            <div class="topic-item"><div class="topic-name">Anomaly Detection</div><div class="topic-desc">Isolation Forest, LOF, One-Class SVM</div></div>
+            <div class="topic-item"><div class="topic-name">Association Rules</div><div class="topic-desc">Apriori, FP-Growth, support/confidence/lift — market basket</div></div>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-title">🎮 Reinforcement Learning (Basics)</div>
+          <div class="topic-grid">
+            <div class="topic-item"><div class="topic-name">Core Concepts</div><div class="topic-desc">Agent, environment, state, action, reward, policy, value function</div></div>
+            <div class="topic-item"><div class="topic-name">Markov Decision Process</div><div class="topic-desc">MDP formulation, Bellman equation</div></div>
+            <div class="topic-item"><div class="topic-name">Q-Learning</div><div class="topic-desc">Q-table, exploration vs exploitation, epsilon-greedy</div></div>
+            <div class="topic-item"><div class="topic-name">Deep Q-Network</div><div class="topic-desc">DQN basics, experience replay, target network</div></div>
+            <div class="topic-item"><div class="topic-name">Policy Gradient</div><div class="topic-desc">REINFORCE algorithm, actor-critic intuition</div></div>
+            <div class="topic-item"><div class="topic-name">Applications</div><div class="topic-desc">Games (OpenAI Gym), robotics, recommendation systems, trading</div></div>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-title">📏 Model Evaluation Metrics</div>
+          <div class="topic-grid">
+            <div class="topic-item"><div class="topic-name">Classification Metrics</div><div class="topic-desc">Accuracy, Precision, Recall, F1-Score, ROC-AUC, PR-AUC, MCC</div></div>
+            <div class="topic-item"><div class="topic-name">Regression Metrics</div><div class="topic-desc">MSE, RMSE, MAE, MAPE, R², Adjusted R²</div></div>
+            <div class="topic-item"><div class="topic-name">Bias-Variance Tradeoff</div><div class="topic-desc">Underfitting vs overfitting — the fundamental ML dilemma</div></div>
+            <div class="topic-item"><div class="topic-name">Cross-Validation</div><div class="topic-desc">k-Fold, Stratified, LOOCV, TimeSeriesCV</div></div>
+          </div>
+          <div class="tags" style="margin-top:10px;">
+            <span class="tag tag-red">Scikit-learn</span>
+            <span class="tag tag-red">XGBoost</span>
+            <span class="tag tag-red">LightGBM</span>
+            <span class="tag tag-red">CatBoost</span>
+            <span class="tag tag-red">Optuna</span>
+            <span class="tag tag-red">MLflow</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════ -->
+    <!-- LEVEL 5: DATA SCIENCE -->
+    <!-- ══════════════════════════════════════════════════ -->
+    <div class="level-card l5">
+      <div class="level-header" onclick="toggle(this)">
+        <span class="level-num">Level 5</span>
+        <div class="level-icon">💼</div>
+        <div class="level-title-wrap">
+          <div class="level-title">Applied Data Science</div>
+          <div class="level-subtitle">Business Domains · DS Lifecycle · Fintech Applications</div>
+        </div>
+        <span class="level-duration">1–2 Months</span>
+        <button class="toggle-btn">+</button>
+      </div>
+      <div class="level-body">
+
+        <div class="section">
+          <div class="section-title">🏢 Business Domain Knowledge</div>
+          <table class="ds-table">
+            <thead><tr><th>Domain</th><th>DS Use Cases</th><th>Key Metrics</th></tr></thead>
+            <tbody>
+              <tr><td><strong>E-Commerce</strong></td><td>Recommendation engines, churn prediction, demand forecasting, A/B testing</td><td>CVR, ARPU, NPS, CLV</td></tr>
+              <tr><td><strong>FinTech</strong></td><td>Credit scoring, fraud detection, risk modeling, algorithmic trading</td><td>AUC-ROC, KS stat, Gini, Default Rate</td></tr>
+              <tr><td><strong>Healthcare</strong></td><td>Disease prediction, medical imaging, drug discovery, patient segmentation</td><td>Sensitivity, Specificity, AUC</td></tr>
+              <tr><td><strong>Manufacturing</strong></td><td>Predictive maintenance, quality control, supply chain optimization</td><td>OEE, MTBF, Defect Rate</td></tr>
+              <tr><td><strong>Marketing</strong></td><td>Customer segmentation, attribution modeling, sentiment analysis, RFM</td><td>CTR, ROAS, CAC, LTV</td></tr>
+              <tr><td><strong>Logistics</strong></td><td>Route optimization, delivery prediction, inventory management</td><td>On-time %, Cost/delivery</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="section">
+          <div class="section-title">🔄 Data Science Lifecycle (Deep Dive)</div>
+          <div class="topic-grid">
+            <div class="topic-item"><div class="topic-name">Business Understanding</div><div class="topic-desc">Stakeholder interviews, problem definition, success criteria, KPIs</div></div>
+            <div class="topic-item"><div class="topic-name">Data Understanding</div><div class="topic-desc">Data inventory, profiling, quality assessment, gap analysis</div></div>
+            <div class="topic-item"><div class="topic-name">Data Preparation</div><div class="topic-desc">Cleaning pipelines, feature stores, train/test strategy</div></div>
+            <div class="topic-item"><div class="topic-name">Modeling</div><div class="topic-desc">Baseline → iterate → ensemble → final model selection</div></div>
+            <div class="topic-item"><div class="topic-name">Evaluation</div><div class="topic-desc">Business metric alignment, fairness, explainability</div></div>
+            <div class="topic-item"><div class="topic-name">Deployment & Monitoring</div><div class="topic-desc">MLOps, CI/CD for ML, model versioning, A/B testing live</div></div>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-title">💰 Data Science in FinTech</div>
+          <div class="topic-grid">
+            <div class="topic-item"><div class="topic-name">Credit Risk Modeling</div><div class="topic-desc">PD, LGD, EAD, scorecard development, FICO-like models, Basel requirements</div></div>
+            <div class="topic-item"><div class="topic-name">Fraud Detection</div><div class="topic-desc">Imbalanced classification, transaction pattern analysis, graph-based fraud</div></div>
+            <div class="topic-item"><div class="topic-name">Algorithmic Trading</div><div class="topic-desc">Time series forecasting, momentum strategies, backtesting frameworks</div></div>
+            <div class="topic-item"><div class="topic-name">Customer Analytics</div><div class="topic-desc">CLV prediction, churn modeling, next-best-action</div></div>
+            <div class="topic-item"><div class="topic-name">Regulatory Compliance</div><div class="topic-desc">Model explainability (SHAP, LIME), bias auditing, GDPR in ML</div></div>
+            <div class="topic-item"><div class="topic-name">Alternative Data</div><div class="topic-desc">Satellite imagery, social sentiment, telco data for underwriting</div></div>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-title">🔬 Advanced DS Aspects</div>
+          <div class="topic-grid">
+            <div class="topic-item"><div class="topic-name">Experimental Design</div><div class="topic-desc">A/B testing, hypothesis testing, power analysis, multi-armed bandit</div></div>
+            <div class="topic-item"><div class="topic-name">Causal Inference</div><div class="topic-desc">Correlation vs causation, DAGs, instrumental variables, DID</div></div>
+            <div class="topic-item"><div class="topic-name">Time Series Analysis</div><div class="topic-desc">ARIMA, SARIMA, Prophet, trend/seasonality decomposition</div></div>
+            <div class="topic-item"><div class="topic-name">NLP Basics</div><div class="topic-desc">Text preprocessing, TF-IDF, word embeddings (Word2Vec), sentiment</div></div>
+            <div class="topic-item"><div class="topic-name">Model Explainability</div><div class="topic-desc">SHAP values, LIME, feature importance, partial dependence plots</div></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════ -->
+    <!-- LEVEL 6: DEEP LEARNING -->
+    <!-- ══════════════════════════════════════════════════ -->
+    <div class="level-card l6">
+      <div class="level-header" onclick="toggle(this)">
+        <span class="level-num">Level 6</span>
+        <div class="level-icon">🧠</div>
+        <div class="level-title-wrap">
+          <div class="level-title">Deep Learning</div>
+          <div class="level-subtitle">ANN · CNN · RNN · Transformers · GANs</div>
+        </div>
+        <span class="level-duration">3–4 Months</span>
+        <button class="toggle-btn">+</button>
+      </div>
+      <div class="level-body">
+
+        <div class="section">
+          <div class="section-title">🔩 Neural Network Fundamentals</div>
+          <div class="topic-grid">
+            <div class="topic-item"><div class="topic-name">Biological Inspiration</div><div class="topic-desc">Neurons, synapses → perceptrons, activation functions analogy</div></div>
+            <div class="topic-item"><div class="topic-name">Perceptron & MLP</div><div class="topic-desc">Single neuron, multi-layer, input/hidden/output layers</div></div>
+            <div class="topic-item"><div class="topic-name">Activation Functions</div><div class="topic-desc">ReLU, Sigmoid, Tanh, Leaky ReLU, GELU, Softmax — when to use each</div></div>
+            <div class="topic-item"><div class="topic-name">Forward Propagation</div><div class="topic-desc">Matrix multiplications through layers, computing predictions</div></div>
+            <div class="topic-item"><div class="topic-name">Loss Functions</div><div class="topic-desc">MSE, Cross-Entropy, Binary CE, Huber — choosing right loss</div></div>
+            <div class="topic-item"><div class="topic-name">Backpropagation</div><div class="topic-desc">Chain rule in depth, gradient flow, vanishing/exploding gradients</div></div>
+            <div class="topic-item"><div class="topic-name">Optimizers</div><div class="topic-desc">SGD, Momentum, RMSprop, Adam, AdaGrad, AdamW — intuition</div></div>
+            <div class="topic-item"><div class="topic-name">Regularization</div><div class="topic-desc">L1/L2, Dropout, Batch Normalization, Early Stopping, Weight Decay</div></div>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-title">🖼️ CNN — Convolutional Neural Networks</div>
+          <div class="topic-grid">
+            <div class="topic-item"><div class="topic-name">Convolution Operation</div><div class="topic-desc">Filters/kernels, feature maps, padding, stride — visual intuition</div></div>
+            <div class="topic-item"><div class="topic-name">Pooling Layers</div><div class="topic-desc">Max pooling, average pooling, global average pooling</div></div>
+            <div class="topic-item"><div class="topic-name">Classic Architectures</div><div class="topic-desc">LeNet → AlexNet → VGG → ResNet → EfficientNet evolution</div></div>
+            <div class="topic-item"><div class="topic-name">Transfer Learning</div><div class="topic-desc">Pre-trained weights, fine-tuning, feature extraction — CRITICAL skill</div></div>
+            <div class="topic-item"><div class="topic-name">Object Detection</div><div class="topic-desc">YOLO, SSD, Faster R-CNN — bounding boxes, IoU, mAP</div></div>
+            <div class="topic-item"><div class="topic-name">Image Segmentation</div><div class="topic-desc">FCN, U-Net for semantic/instance segmentation</div></div>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-title">📝 RNN & Sequential Models</div>
+          <div class="topic-grid">
+            <div class="topic-item"><div class="topic-name">Vanilla RNN</div><div class="topic-desc">Hidden state, temporal dependencies, BPTT, vanishing gradient problem</div></div>
+            <div class="topic-item"><div class="topic-name">LSTM</div><div class="topic-desc">Cell state, forget/input/output gates — solving long-term dependencies</div></div>
+            <div class="topic-item"><div class="topic-name">GRU</div><div class="topic-desc">Simplified LSTM, reset & update gates, efficiency</div></div>
+            <div class="topic-item"><div class="topic-name">Bidirectional RNNs</div><div class="topic-desc">Forward + backward pass, context from both directions</div></div>
+            <div class="topic-item"><div class="topic-name">Seq2Seq</div><div class="topic-desc">Encoder-decoder, attention mechanism genesis, machine translation</div></div>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-title">⚡ Transformers & Attention</div>
+          <div class="topic-grid">
+            <div class="topic-item"><div class="topic-name">Attention Mechanism</div><div class="topic-desc">Query, Key, Value — scaled dot-product attention, intuition</div></div>
+            <div class="topic-item"><div class="topic-name">Multi-Head Attention</div><div class="topic-desc">Parallel attention heads, concatenation, projection</div></div>
+            <div class="topic-item"><div class="topic-name">Positional Encoding</div><div class="topic-desc">Why RNNs know order; sinusoidal encoding for Transformers</div></div>
+            <div class="topic-item"><div class="topic-name">Transformer Architecture</div><div class="topic-desc">Encoder-decoder blocks, LayerNorm, FFN sublayers, residual connections</div></div>
+            <div class="topic-item"><div class="topic-name">BERT & GPT</div><div class="topic-desc">Encoder-only vs decoder-only; masked LM vs causal LM pre-training</div></div>
+            <div class="topic-item"><div class="topic-name">Vision Transformer (ViT)</div><div class="topic-desc">Patches as tokens, applying Transformers to images</div></div>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-title">🎨 GANs & Generative Models</div>
+          <div class="topic-grid">
+            <div class="topic-item"><div class="topic-name">GAN Architecture</div><div class="topic-desc">Generator vs Discriminator, minimax game, training dynamics</div></div>
+            <div class="topic-item"><div class="topic-name">Training Challenges</div><div class="topic-desc">Mode collapse, training instability, Wasserstein GAN</div></div>
+            <div class="topic-item"><div class="topic-name">GAN Variants</div><div class="topic-desc">DCGAN, conditional GAN, CycleGAN, StyleGAN</div></div>
+            <div class="topic-item"><div class="topic-name">VAE</div><div class="topic-desc">Variational Autoencoders, latent space, reparameterization trick</div></div>
+            <div class="topic-item"><div class="topic-name">Diffusion Models</div><div class="topic-desc">DDPM, forward/reverse process, noise prediction — foundation of Stable Diffusion</div></div>
+          </div>
+          <div class="tags" style="margin-top:10px;">
+            <span class="tag tag-purple">PyTorch</span>
+            <span class="tag tag-purple">TensorFlow/Keras</span>
+            <span class="tag tag-purple">Hugging Face</span>
+            <span class="tag tag-purple">CUDA / GPU</span>
+            <span class="tag tag-purple">Weights & Biases</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════ -->
+    <!-- LEVEL 7: GENERATIVE AI -->
+    <!-- ══════════════════════════════════════════════════ -->
+    <div class="level-card l7">
+      <div class="level-header" onclick="toggle(this)">
+        <span class="level-num">Level 7</span>
+        <div class="level-icon">✨</div>
+        <div class="level-title-wrap">
+          <div class="level-title">Generative AI</div>
+          <div class="level-subtitle">LLMs · Prompt Engineering · RAG · Fine-tuning · SLM</div>
+        </div>
+        <span class="level-duration">3–4 Months</span>
+        <button class="toggle-btn">+</button>
+      </div>
+      <div class="level-body">
+
+        <div class="section">
+          <div class="section-title">🧬 LLMs — Foundation</div>
+          <div class="topic-grid">
+            <div class="topic-item"><div class="topic-name">LLM Architecture</div><div class="topic-desc">Decoder-only transformer, tokenization (BPE, WordPiece), context window</div></div>
+            <div class="topic-item"><div class="topic-name">Training Process</div><div class="topic-desc">Pre-training (next-token prediction), scale laws, compute requirements</div></div>
+            <div class="topic-item"><div class="topic-name">RLHF</div><div class="topic-desc">Reinforcement Learning from Human Feedback — how GPT/Claude are aligned</div></div>
+            <div class="topic-item"><div class="topic-name">Model Families</div><div class="topic-desc">GPT-4/4o, Claude 3.5, Gemini 1.5, Llama 3, Mistral, Phi-3, Qwen</div></div>
+            <div class="topic-item"><div class="topic-name">Multimodal LLMs</div><div class="topic-desc">Vision-language models, audio LLMs, tool-use capable models</div></div>
+            <div class="topic-item"><div class="topic-name">Open vs Closed Models</div><div class="topic-desc">Proprietary APIs vs open-weight models — trade-offs for production</div></div>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-title">💬 Prompt Engineering</div>
+          <div class="topic-grid">
+            <div class="topic-item"><div class="topic-name">Prompt Anatomy</div><div class="topic-desc">System prompt, user prompt, assistant prefill, context injection</div></div>
+            <div class="topic-item"><div class="topic-name">Zero/Few-Shot</div><div class="topic-desc">Zero-shot prompting, few-shot examples, in-context learning</div></div>
+            <div class="topic-item"><div class="topic-name">Chain-of-Thought</div><div class="topic-desc">CoT prompting, step-by-step reasoning, "think step by step"</div></div>
+            <div class="topic-item"><div class="topic-name">ReAct Pattern</div><div class="topic-desc">Reasoning + Acting loops, tool integration in prompts</div></div>
+            <div class="topic-item"><div class="topic-name">Structured Output</div><div class="topic-desc">JSON mode, XML tags, function calling, output parsers</div></div>
+            <div class="topic-item"><div class="topic-name">Prompt Optimization</div><div class="topic-desc">DSPy, automatic prompt optimization, evaluation-driven iteration</div></div>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-title">🔌 LLM Integration</div>
+          <div class="topic-grid">
+            <div class="topic-item"><div class="topic-name">OpenAI API</div><div class="topic-desc">Chat completions, embeddings, function calling, streaming</div></div>
+            <div class="topic-item"><div class="topic-name">LangChain</div><div class="topic-desc">Chains, memory, tools, callbacks, LCEL (LangChain Expression Language)</div></div>
+            <div class="topic-item"><div class="topic-name">LlamaIndex</div><div class="topic-desc">Data indexing, query engines, node parsers, retrievers</div></div>
+            <div class="topic-item"><div class="topic-name">Hugging Face</div><div class="topic-desc">transformers library, pipeline(), model hub, Inference API</div></div>
+            <div class="topic-item"><div class="topic-name">Local LLMs</div><div class="topic-desc">Ollama, llama.cpp, Hugging Face local inference, quantized models</div></div>
+            <div class="topic-item"><div class="topic-name">Vector Databases</div><div class="topic-desc">Pinecone, Weaviate, ChromaDB, FAISS, Qdrant — embeddings + search</div></div>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-title">📚 RAG — Retrieval Augmented Generation</div>
+          <div class="topic-grid">
+            <div class="topic-item"><div class="topic-name">RAG Architecture</div><div class="topic-desc">Indexing pipeline, retrieval pipeline, generation pipeline</div></div>
+            <div class="topic-item"><div class="topic-name">Document Processing</div><div class="topic-desc">Chunking strategies, overlap, metadata extraction</div></div>
+            <div class="topic-item"><div class="topic-name">Embedding Models</div><div class="topic-desc">text-embedding-3, BGE, E5, sentence-transformers — choosing embeddings</div></div>
+            <div class="topic-item"><div class="topic-name">Retrieval Strategies</div><div class="topic-desc">Semantic search, BM25, hybrid search, re-ranking</div></div>
+            <div class="topic-item"><div class="topic-name">Advanced RAG</div><div class="topic-desc">HyDE, query expansion, multi-query retriever, RAPTOR</div></div>
+            <div class="topic-item"><div class="topic-name">RAG Evaluation</div><div class="topic-desc">RAGAS framework, faithfulness, relevance, context recall metrics</div></div>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-title">🎯 Fine-Tuning LLMs</div>
+          <div class="topic-grid">
+            <div class="topic-item"><div class="topic-name">When to Fine-Tune?</div><div class="topic-desc">Prompt engineering → RAG → fine-tune decision tree</div></div>
+            <div class="topic-item"><div class="topic-name">Instruction Fine-Tuning</div><div class="topic-desc">SFT (Supervised Fine-Tuning), dataset formats (Alpaca, ShareGPT)</div></div>
+            <div class="topic-item"><div class="topic-name">LoRA & QLoRA</div><div class="topic-desc">Parameter-efficient fine-tuning, rank decomposition, 4-bit quantization</div></div>
+            <div class="topic-item"><div class="topic-name">Training Frameworks</div><div class="topic-desc">Unsloth, TRL (Hugging Face), Axolotl — practical tools</div></div>
+            <div class="topic-item"><div class="topic-name">DPO</div><div class="topic-desc">Direct Preference Optimization — alignment without reward model</div></div>
+            <div class="topic-item"><div class="topic-name">Evaluation</div><div class="topic-desc">Benchmark datasets, MMLU, MT-Bench, task-specific evals</div></div>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-title">🔧 Build Your Own SLM with PyTorch</div>
+          <div class="topic-grid">
+            <div class="topic-item"><div class="topic-name">Tokenizer from Scratch</div><div class="topic-desc">BPE tokenizer training using tiktoken / sentencepiece</div></div>
+            <div class="topic-item"><div class="topic-name">GPT Architecture in PyTorch</div><div class="topic-desc">Token embeddings, positional encoding, Transformer blocks, LM head</div></div>
+            <div class="topic-item"><div class="topic-name">Training Loop</div><div class="topic-desc">DataLoader, optimizer, gradient accumulation, mixed precision (AMP)</div></div>
+            <div class="topic-item"><div class="topic-name">Text Generation</div><div class="topic-desc">Greedy, top-k, top-p (nucleus) sampling, temperature</div></div>
+            <div class="topic-item"><div class="topic-name">Scaling</div><div class="topic-desc">Flash Attention, gradient checkpointing, ZeRO optimization</div></div>
+            <div class="topic-item"><div class="topic-name">Reference Project</div><div class="topic-desc">Karpathy's nanoGPT — build a 124M param model on your dataset</div></div>
+          </div>
+          <div class="info-box tip" style="margin-top:14px;">
+            <strong>Your UdaanSetu.AI Edge</strong>
+            Your RAG-based chatbot is a perfect Level 7 project. Now extend it: add fine-tuning on domain data, swap to a local model with Ollama, evaluate with RAGAS, and benchmark against GPT-4o.
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════ -->
+    <!-- LEVEL 8: AGENTIC AI -->
+    <!-- ══════════════════════════════════════════════════ -->
+    <div class="level-card l8">
+      <div class="level-header" onclick="toggle(this)">
+        <span class="level-num">Level 8</span>
+        <div class="level-icon">🤖</div>
+        <div class="level-title-wrap">
+          <div class="level-title">Agentic AI</div>
+          <div class="level-subtitle">AI Agents · MCP · Workflows · Deployment · n8n</div>
+        </div>
+        <span class="level-duration">2–3 Months (Ongoing)</span>
+        <button class="toggle-btn">+</button>
+      </div>
+      <div class="level-body">
+
+        <div class="section">
+          <div class="section-title">🧩 AI Agents — Foundation</div>
+          <div class="topic-grid">
+            <div class="topic-item"><div class="topic-name">What is an AI Agent?</div><div class="topic-desc">LLM + memory + tools + planning — agents vs chatbots vs pipelines</div></div>
+            <div class="topic-item"><div class="topic-name">Agent Architecture</div><div class="topic-desc">Perception → reasoning → action loop, tool calling, self-reflection</div></div>
+            <div class="topic-item"><div class="topic-name">Tool Use</div><div class="topic-desc">Function calling, tool schemas, results injection, error handling</div></div>
+            <div class="topic-item"><div class="topic-name">Memory Systems</div><div class="topic-desc">In-context (buffer), external (vector store), episodic, semantic memory</div></div>
+            <div class="topic-item"><div class="topic-name">Planning</div><div class="topic-desc">ReAct, Plan-and-Execute, Tree of Thoughts, self-consistency</div></div>
+            <div class="topic-item"><div class="topic-name">Multi-Agent Systems</div><div class="topic-desc">Agent roles, orchestrator-worker pattern, communication protocols</div></div>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-title">🌐 Agent Use Cases by Domain</div>
+          <table class="ds-table">
+            <thead><tr><th>Domain</th><th>Agent Use Case</th><th>Tools Involved</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Data Science</strong></td><td>AutoEDA agents, code-gen for analysis, self-correcting ML pipelines</td><td>Python executor, database tool, plotting</td></tr>
+              <tr><td><strong>FinTech</strong></td><td>Automated report generation, portfolio analysis, compliance checking</td><td>Market data API, SQL, PDF generator</td></tr>
+              <tr><td><strong>Healthcare</strong></td><td>Medical record summarization, clinical decision support, literature review</td><td>PubMed search, EHR API, OCR</td></tr>
+              <tr><td><strong>E-Commerce</strong></td><td>Customer support agent, product research, price monitoring</td><td>Web search, CRM, email tool</td></tr>
+              <tr><td><strong>Education</strong></td><td>Personalized tutoring, content generation, student assessment</td><td>Knowledge base, quiz generator, progress tracker</td></tr>
+              <tr><td><strong>DevOps / SRE</strong></td><td>Incident response agents, log analysis, auto-remediation</td><td>CloudWatch, PagerDuty, shell executor</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="section">
+          <div class="section-title">🔌 MCP — Model Context Protocol</div>
+          <div class="topic-grid">
+            <div class="topic-item"><div class="topic-name">What is MCP?</div><div class="topic-desc">Anthropic's open standard for connecting LLMs to data sources and tools universally</div></div>
+            <div class="topic-item"><div class="topic-name">MCP Architecture</div><div class="topic-desc">MCP Host (Claude/app), MCP Client, MCP Server — transport layer</div></div>
+            <div class="topic-item"><div class="topic-name">MCP Primitives</div><div class="topic-desc">Resources (data), Tools (functions), Prompts (templates)</div></div>
+            <div class="topic-item"><div class="topic-name">Building MCP Servers</div><div class="topic-desc">Python/TS SDK, exposing database, file system, APIs as MCP tools</div></div>
+            <div class="topic-item"><div class="topic-name">MCP Ecosystem</div><div class="topic-desc">GitHub, Slack, Postgres, Brave Search, filesystem MCP servers</div></div>
+            <div class="topic-item"><div class="topic-name">Why MCP Matters</div><div class="topic-desc">Replaces N×M integrations with N+M — standardization in agentic AI</div></div>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-title">⚙️ Agent Frameworks</div>
+          <div class="topic-grid">
+            <div class="topic-item"><div class="topic-name">LangGraph</div><div class="topic-desc">Graph-based agent workflows, cycles, branching, state management — production-grade</div></div>
+            <div class="topic-item"><div class="topic-name">CrewAI</div><div class="topic-desc">Role-based multi-agent teams, tasks, crew orchestration</div></div>
+            <div class="topic-item"><div class="topic-name">AutoGen</div><div class="topic-desc">Microsoft's conversational multi-agent framework, code execution agents</div></div>
+            <div class="topic-item"><div class="topic-name">OpenAI Swarm</div><div class="topic-desc">Lightweight handoff-based multi-agent pattern</div></div>
+            <div class="topic-item"><div class="topic-name">Semantic Kernel</div><div class="topic-desc">Enterprise-grade orchestration, plugin system, planner</div></div>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-title">🔄 n8n & Workflow Automation</div>
+          <div class="topic-grid">
+            <div class="topic-item"><div class="topic-name">n8n Fundamentals</div><div class="topic-desc">Self-hosted workflow automation, node-based visual programming</div></div>
+            <div class="topic-item"><div class="topic-name">AI Agent Node</div><div class="topic-desc">LLM integration in n8n, tool nodes, memory nodes</div></div>
+            <div class="topic-item"><div class="topic-name">Trigger Types</div><div class="topic-desc">Webhook, schedule, event-based, form triggers</div></div>
+            <div class="topic-item"><div class="topic-name">Integration Nodes</div><div class="topic-desc">Slack, Gmail, Notion, Airtable, HTTP, database nodes</div></div>
+            <div class="topic-item"><div class="topic-name">Sub-workflows</div><div class="topic-desc">Modular agent design, calling workflows from workflows</div></div>
+            <div class="topic-item"><div class="topic-name">Error Handling</div><div class="topic-desc">Error workflows, retry logic, fallback paths</div></div>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-title">🚀 Agent Deployment</div>
+          <div class="topic-grid">
+            <div class="topic-item"><div class="topic-name">FastAPI for Agents</div><div class="topic-desc">Exposing agents as REST APIs, streaming responses (SSE)</div></div>
+            <div class="topic-item"><div class="topic-name">Docker + Cloud Deploy</div><div class="topic-desc">Containerizing agents, deploying to AWS/GCP/Azure</div></div>
+            <div class="topic-item"><div class="topic-name">Agent Observability</div><div class="topic-desc">LangSmith, Langfuse, tracing, token tracking, debugging</div></div>
+            <div class="topic-item"><div class="topic-name">Safety & Guardrails</div><div class="topic-desc">NeMo Guardrails, Constitutional AI, input/output validation</div></div>
+            <div class="topic-item"><div class="topic-name">Rate Limiting & Cost</div><div class="topic-desc">Token budgets, caching (GPTCache, semantic cache), cost control</div></div>
+            <div class="topic-item"><div class="topic-name">Human-in-the-Loop</div><div class="topic-desc">Approval gates, interrupt nodes, human feedback integration</div></div>
+          </div>
+          <div class="tags" style="margin-top:10px;">
+            <span class="tag tag-yellow">LangGraph</span>
+            <span class="tag tag-yellow">CrewAI</span>
+            <span class="tag tag-yellow">n8n</span>
+            <span class="tag tag-yellow">LangSmith</span>
+            <span class="tag tag-yellow">Langfuse</span>
+            <span class="tag tag-yellow">FastAPI</span>
+            <span class="tag tag-yellow">Docker</span>
+          </div>
+          <div class="info-box tip" style="margin-top:14px;">
+            <strong>Flagship Project Idea</strong>
+            Build a multi-agent "AI Career Counselor for Rural Youth" — extend UdaanSetu.AI into an agentic system: one agent for skill gap analysis, one for job searching (web tool), one for resume review, orchestrated by LangGraph, deployed via n8n webhooks, monitored in Langfuse.
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div><!-- end roadmap-line -->
+
+  <!-- SKILL PROGRESSION -->
+  <div style="margin-top:60px; padding:32px; background: var(--surface); border: 1px solid var(--border); border-radius:4px;">
+    <div class="section-title" style="font-family:'Syne',sans-serif; font-size:1.2rem; font-weight:700; margin-bottom:20px; display:flex; align-items:center; gap:10px;">
+      📊 Skill Importance for Modern Data Scientist
+      <span style="flex:1; height:1px; background:var(--border); display:block;"></span>
+    </div>
+
+    <div class="skill-meter"><span class="meter-label">Python Programming</span><div class="meter-bar"><div class="meter-fill" style="width:100%; background: var(--accent);"></div></div><span class="meter-pct">100%</span></div>
+    <div class="skill-meter"><span class="meter-label">SQL & Databases</span><div class="meter-bar"><div class="meter-fill" style="width:95%; background: var(--accent4);"></div></div><span class="meter-pct">95%</span></div>
+    <div class="skill-meter"><span class="meter-label">Machine Learning</span><div class="meter-bar"><div class="meter-fill" style="width:90%; background: var(--accent5);"></div></div><span class="meter-pct">90%</span></div>
+    <div class="skill-meter"><span class="meter-label">Statistics & Math</span><div class="meter-bar"><div class="meter-fill" style="width:88%; background: #a78bfa;"></div></div><span class="meter-pct">88%</span></div>
+    <div class="skill-meter"><span class="meter-label">Deep Learning</span><div class="meter-bar"><div class="meter-fill" style="width:82%; background: #818cf8;"></div></div><span class="meter-pct">82%</span></div>
+    <div class="skill-meter"><span class="meter-label">Data Visualization</span><div class="meter-bar"><div class="meter-fill" style="width:80%; background: var(--accent3);"></div></div><span class="meter-pct">80%</span></div>
+    <div class="skill-meter"><span class="meter-label">Gen AI / LLMs</span><div class="meter-bar"><div class="meter-fill" style="width:78%; background: #4ade80;"></div></div><span class="meter-pct">78%</span></div>
+    <div class="skill-meter"><span class="meter-label">Cloud & Big Data</span><div class="meter-bar"><div class="meter-fill" style="width:70%; background: var(--accent6);"></div></div><span class="meter-pct">70%</span></div>
+    <div class="skill-meter"><span class="meter-label">Agentic AI</span><div class="meter-bar"><div class="meter-fill" style="width:65%; background: #fb923c;"></div></div><span class="meter-pct">65%</span></div>
+  </div>
+
+  <!-- WHAT TO AVOID -->
+  <div style="margin-top:32px; padding:32px; background: rgba(239,68,68,0.04); border: 1px solid rgba(239,68,68,0.2); border-radius:4px;">
+    <div style="font-family:'Syne',sans-serif; font-size:1.1rem; font-weight:700; margin-bottom:16px; color: var(--accent5);">⛔ What to Avoid — From a 6-Year DS Practitioner</div>
+    <div class="topic-grid">
+      <div class="topic-item" style="border-color:rgba(239,68,68,0.2);"><div class="topic-name">Tutorial Hell</div><div class="topic-desc">Watching 100 tutorials without building anything. Always code along, always build.</div></div>
+      <div class="topic-item" style="border-color:rgba(239,68,68,0.2);"><div class="topic-name">Skipping Math</div><div class="topic-desc">Using sklearn without understanding what's inside. Leads to cargo-cult ML — dangerous in production.</div></div>
+      <div class="topic-item" style="border-color:rgba(239,68,68,0.2);"><div class="topic-name">Tool Hopping</div><div class="topic-desc">Switching frameworks every week. Go deep on PyTorch first before jumping to JAX or MXNet.</div></div>
+      <div class="topic-item" style="border-color:rgba(239,68,68,0.2);"><div class="topic-name">Skipping EDA</div><div class="topic-desc">Jumping to models without understanding the data. 70% of DS work is data, not models.</div></div>
+      <div class="topic-item" style="border-color:rgba(239,68,68,0.2);"><div class="topic-name">Ignoring Business Context</div><div class="topic-desc">A perfect model that doesn't solve the business problem is worthless.</div></div>
+      <div class="topic-item" style="border-color:rgba(239,68,68,0.2);"><div class="topic-name">No Version Control</div><div class="topic-desc">Not using Git from day 1. Every project, every experiment must be in Git.</div></div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <p>Designed for <strong>Dhruv Patel</strong> and every tech-background student serious about Data Science.</p>
+  <p style="margin-top:8px;">Roadmap spans <strong>18–24 months</strong> of focused learning. Projects > Certificates. Depth > Breadth.</p>
+  <p style="margin-top:16px; font-family:'Space Mono',monospace; font-size:0.7rem; letter-spacing:1px;">LEVEL 0 → LEVEL 8 · FOUNDATION TO AGENTIC AI · 2024–2026</p>
+</footer>
+
+<script>
+  function toggle(header) {
+    const body = header.nextElementSibling;
+    const btn = header.querySelector('.toggle-btn');
+    const isOpen = body.classList.contains('open');
+    body.classList.toggle('open', !isOpen);
+    btn.textContent = isOpen ? '+' : '−';
+  }
+
+  function expandAll() {
+    document.querySelectorAll('.level-body').forEach(b => b.classList.add('open'));
+    document.querySelectorAll('.toggle-btn').forEach(b => b.textContent = '−');
+  }
+
+  function collapseAll() {
+    document.querySelectorAll('.level-body').forEach(b => b.classList.remove('open'));
+    document.querySelectorAll('.toggle-btn').forEach(b => b.textContent = '+');
+  }
+
+  // Progress bar
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = (scrollTop / docHeight) * 100;
+    document.getElementById('progressLine').style.width = pct + '%';
+  });
+
+  // Auto-open Level 0 on load
+  const firstBody = document.querySelector('.level-body');
+  const firstBtn = document.querySelector('.toggle-btn');
+  if (firstBody) { firstBody.classList.add('open'); firstBtn.textContent = '−'; }
+</script>
+
+</body>
+</html>
