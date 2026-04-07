@@ -17,7 +17,7 @@
   <a href="#-roadmap-overview">📋 Roadmap</a> •
   <a href="#-how-to-use">📖 How to Use</a> •
   <a href="CONTRIBUTING.md">🤝 Contribute</a> •
-  <a href="https://dhruvpatel16120.github.io/Ready_For_Data_Scientist/#level4">🌐 Interactive Roadmap</a>
+  <a href="https://dhruvpatel16120.github.io/Ready_For_Data_Scientist/">🌐 Interactive Roadmap</a>
 </p>
 
 ---
@@ -59,6 +59,10 @@ Ready_For_Data_Scientist/
 ├── 📄 README.md                       # You are here!
 ├── 📄 CONTRIBUTING.md                 # How to contribute
 ├── 📄 LICENSE                         # MIT License
+│
+├── 📁 web/                            # Interactive roadmap core assets
+│   ├── 📄 main.css                    # Modern design tokens and global styles
+│   └── 📄 main.js                     # Core interactivity and animations
 │
 ├── 📁 Level_0_Foundation/
 │   ├── 01_Python_Basics/              # Variables, loops, functions, data structures
@@ -172,39 +176,46 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 - 🧪 Add practice problems and solutions
 - 📊 Add datasets and real-world project examples
 - 📖 Improve documentation and fix typos
-- 🌐 Translate content to other languages
 
 ---
 
 ## ⚡ Quick Start
 
 ```bash
-# Clone the repository
+# 1. Clone the repository
 git clone https://github.com/dhruvpatel16120/Ready_For_Data_Scientist.git
-cd Learning_ML
+cd Ready_For_Data_Scientist
 
-# Create a virtual environment
+# 2. Create and activate a virtual environment
 python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+# Windows: venv\Scripts\activate
+# Linux/Mac: source venv/bin/activate
 
-# Install common dependencies
+# 3. Install core Data Science libraries
 pip install numpy pandas matplotlib seaborn scikit-learn jupyter
 
 # Launch Jupyter
 jupyter notebook
 ```
 
+## 🗺️ View the Roadmap
+
+> Option A: Open index.html directly in your web browser
+> Option B: Run a local server to view the roadmap
+> `npx http-server . -p 8080`
+
 ---
 
 ## 📜 Philosophy
 
-> **Projects > Certificates. Depth > Breadth. Building > Watching.**
+> **"A certificate proves you watched; a repository proves you built."**
 
-This roadmap is built on three principles:
+This roadmap is built on four core pillars:
 
-1. **🔨 Practical First** — Every topic has code, not just theory
-2. **🌱 Progressive Complexity** — From `print("Hello World")` to building AI agents
-3. **🌍 Community Impact** — Open source for everyone to learn and contribute
+1. **🔨 Hands-On First** — We don't just study algorithms; we implement them. Theory is a tool, but code is the outcome. Every notebook, project, and line of code is designed to build a professional-grade portfolio.
+2. **🏗️ Progressive Mastery** — Each level is a prerequisite. We don't skip to Neural Networks before mastering Python and Statistics. We build a solid, unshakable bedrock first.
+3. **🚀 Industry Alignment** — Every tool, framework, and project idea in this roadmap is chosen based on what top-tier tech companies actually use in production today.
+4. **🌍 Open Access** — Quality Data Science education should be available to everyone. This is a living community resource where we learn, build, and grow together.
 
 ---
 
