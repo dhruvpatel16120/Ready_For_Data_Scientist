@@ -33,9 +33,9 @@ def run_server():
         httpd.serve_forever()
 
 # For a real demonstration, you would run this and visit localhost:8000
-# print("\nStarting a temporary server thread...")
-# daemon_thread = threading.Thread(target=run_server, daemon=True)
-# daemon_thread.start()
-# time.sleep(1)
-# print("Server is running on background...")
-# print("In reality, you'd use 'python -m http.server' for quick hosting.")
+print("\nStarting a temporary server thread...")
+daemon_thread = threading.Thread(target=run_server, daemon=True)
+daemon_thread.start()
+time.sleep(1)
+print("Server is running on background...")
+print("In reality, you'd use 'python -m http.server' for quick hosting.")

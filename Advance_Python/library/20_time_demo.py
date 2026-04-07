@@ -22,6 +22,11 @@ local_struct = time.localtime()
 print(f"Year: {local_struct.tm_year}")
 print(f"Month: {local_struct.tm_mon}")
 print(f"Day: {local_struct.tm_mday}")
+print(f"Day of year: {local_struct.tm_yday}")
+print(f"Hour: {local_struct.tm_hour}")
+print(f"Minute: {local_struct.tm_min}")
+print(f"Second: {local_struct.tm_sec}")
+print(f"is DST: {local_struct.tm_isdst}")
 
 # 5. formatting time
 formatted = time.strftime("%Y-%m-%d %H:%M:%S", local_struct)

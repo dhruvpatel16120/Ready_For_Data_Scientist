@@ -12,6 +12,7 @@ print(f"Release: {platform.release()}")
 print(f"Version: {platform.version()}")
 print(f"Machine: {platform.machine()}")
 print(f"Processor: {platform.processor()}")
+print(f"Python Version: {platform.win32_edition()}")
 
 print("\n--- Architecture and Python info ---")
 print(f"Architecture: {platform.architecture()}")

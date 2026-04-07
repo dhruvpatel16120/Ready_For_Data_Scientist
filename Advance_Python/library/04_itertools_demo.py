@@ -40,11 +40,11 @@ print(f"chain([1,2], [3,4]): {list(itertools.chain([1,2], [3,4], [5,6], [7,8]))}
 # compress()
 print(f"compress('ABCDE', [1,0,1,0,1]): {list(itertools.compress('ABCDE', [1,0,1,0,1,1,0]))}")
 
-# islice()
+# islice(interable, start, stop, step)
 print(f"islice(range(10), 2, 8, 2): {list(itertools.islice(range(10), 2, 8, 2))}")
 
 # groupby()
 data = [("A", 1), ("A", 2), ("B", 3), ("B", 4), ("A", 5)]
 data.sort() # groupby works on pre-sorted data
-grouped = {k: list(v) for k, v in itertools.groupby(data, lambda x: x[0])}
+grouped = { k : list(v) for k, v in itertools.groupby(data, lambda x: x[0])}
 print(f"groupby results: {grouped}")

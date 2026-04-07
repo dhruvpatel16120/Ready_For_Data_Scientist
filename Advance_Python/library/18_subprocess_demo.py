@@ -32,5 +32,5 @@ except FileNotFoundError:
     print("Command not found!")
 
 # 4. Check outputs with check_output
-# output = subprocess.check_output(["echo", "Test output"], shell=True)
-# print(output.decode())
+output = subprocess.check_output(["echo", "Test output"], shell=True)
+print(output.decode())

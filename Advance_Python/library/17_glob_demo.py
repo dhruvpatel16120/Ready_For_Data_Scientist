@@ -5,12 +5,15 @@ Python glob Module
 Finds all the pathnames matching a specified pattern according to the rules used by the Unix shell.
 """
 
+print("Files in current dir:")
+print(glob.glob("*"))
+
 print("--- Listing all .py files ---")
-py_files = glob.glob("*.py")
+py_files = glob.glob("**/*.py")
 print(py_files)
 
 print("\n--- Listing 0x_ prefix files ---")
-prefix_files = glob.glob("0[1-5]_*.py")
+prefix_files = glob.glob("**/0[1-5]_*.py")
 print(prefix_files)
 
 print("\n--- Iterating with iglob (efficient iterator) ---")
