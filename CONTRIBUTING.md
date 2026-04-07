@@ -8,7 +8,7 @@ Thank you for your interest in contributing! This repository thrives on communit
 
 ### 1. Fork & Clone
 ```bash
-git fork https://github.com/dhruvpatel16120/Learning_ML.git
+git fork https://github.com/dhruvpatel16120/Ready_For_Data_Scientist.git
 git clone https://github.com/YOUR_USERNAME/Learning_ML.git
 cd Learning_ML
 ```

@@ -13,7 +13,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/dhruvpatel16120/Learning_ML">⭐ Star this Repo</a> •
+  <a href="https://github.com/dhruvpatel16120/Ready_For_Data_Scientist">⭐ Star this Repo</a> •
   <a href="#-roadmap-overview">📋 Roadmap</a> •
   <a href="#-how-to-use">📖 How to Use</a> •
   <a href="CONTRIBUTING.md">🤝 Contribute</a> •
@@ -180,7 +180,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
 ```bash
 # Clone the repository
-git clone https://github.com/dhruvpatel16120/Learning_ML.git
+git clone https://github.com/dhruvpatel16120/Ready_For_Data_Scientist.git
 cd Learning_ML
 
 # Create a virtual environment
