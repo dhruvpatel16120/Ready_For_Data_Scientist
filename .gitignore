@@ -1,0 +1,63 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Virtual Environments
+venv/
+env/
+.env
+*.env
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Data files (large)
+*.csv
+*.xlsx
+*.xls
+!**/sample_*.csv
+!**/example_*.csv
+*.db
+*.sqlite
+*.sqlite3
+
+# Model files
+*.pkl
+*.joblib
+*.h5
+*.pt
+*.pth
+*.onnx
+*.pb
+
+# Logs
+*.log
+mlruns/
+wandb/
+
+# Archives
+*.zip
+*.tar.gz
+*.rar
+
+# Misc
+*.docx

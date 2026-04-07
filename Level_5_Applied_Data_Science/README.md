@@ -1,47 +1,37 @@
-# Applied Data Science
+# 💼 Level 5 — Applied Data Science
 
-## Business Domains
-Applied Data Science is utilized across various business domains including:
-- **Finance**: Risk assessment, fraud detection, and algorithmic trading.
-- **Healthcare**: Predictive analytics, personalized medicine, and operational efficiencies.
-- **Retail**: Customer segmentation, inventory management, and recommendation systems.
-- **Manufacturing**: Quality control, supply chain optimization, and predictive maintenance.
+<p align="center">
+  <img src="https://img.shields.io/badge/Duration-1--2%20Months-ec4899?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Difficulty-Advanced-ef4444?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Prerequisites-Level%204-ef4444?style=for-the-badge" />
+</p>
 
-## Data Science Lifecycle
-The Data Science lifecycle consists of several key phases:
-1. **Problem Definition**: Identifying and understanding the problem to be solved.
-2. **Data Collection**: Gathering relevant data from various sources.
-3. **Data Preparation**: Cleaning and formatting data for analysis.
-4. **Exploratory Data Analysis (EDA)**: Analyzing data to uncover patterns and insights.
-5. **Model Building**: Selecting and training models to solve the defined problem.
-6. **Model Evaluation**: Assessing the model's performance using metrics.
-7. **Deployment**: Implementing the model in a production environment.
-8. **Monitoring and Maintenance**: Continuously monitoring model performance and retraining as necessary.
-
-## FinTech Applications
-In the FinTech sector, applications of Data Science are prevalent:
-- **Credit Scoring**: Using machine learning to assess borrower risk.
-- **Algorithmic Trading**: Making automatic trade decisions based on predefined criteria.
-- **Fraud Detection**: Identifying fraudulent transactions using anomaly detection algorithms.
-
-## Causal Inference
-Causal inference aims to determine the cause-and-effect relationship between variables. It helps businesses understand how changes in one variable affect another, which is essential for making informed decisions.
-
-## Time Series Analysis
-Time series analysis is crucial for forecasting future values based on previously observed values. Applications include:
-- **Stock Price Prediction**: Analyzing past stock prices to predict future trends.
-- **Sales Forecasting**: Estimating future sales based on historical data.
-
-## Natural Language Processing (NLP)
-NLP enables machines to understand and interpret human language. Applications include:
-- **Sentiment Analysis**: Determining the sentiment behind customer reviews or feedback.
-- **Chatbots**: Automating customer service interactions.
-
-## Model Explainability
-Model explainability refers to the methods and techniques used to make the decision-making process of machine learning models transparent. It is crucial for building trust and ensuring compliance with regulations. Techniques include:
-- **Feature Importance**: Understanding which features impact model predictions.
-- **LIME**: Local Interpretable Model-agnostic Explanations that provide local insights into model predictions.
+> **A perfect model that doesn't solve the business problem is worthless.** Learn to apply DS in real-world domains.
 
 ---
 
-_date: 2026-04-04 05:32:14_
+## 📚 What You'll Learn
+
+| Module | Topics | Folder |
+|---|---|---|
+| 🏢 Business Domains | E-commerce, FinTech, Healthcare, Manufacturing, Marketing, Logistics | [`01_Business_Domains/`](01_Business_Domains/) |
+| 🔄 DS Lifecycle | CRISP-DM, stakeholder management, business understanding, MLOps | [`02_DS_Lifecycle/`](02_DS_Lifecycle/) |
+| 💰 FinTech | Credit risk modeling, fraud detection, algorithmic trading, compliance | [`03_FinTech/`](03_FinTech/) |
+| 🔬 Advanced DS | A/B testing, causal inference, time series, NLP basics, model explainability | [`04_Advanced_DS/`](04_Advanced_DS/) |
+
+---
+
+## 🎯 Learning Objectives
+
+- [ ] Map business problems to ML solutions
+- [ ] Build domain-specific ML models (credit scoring, churn prediction)
+- [ ] Design and analyze A/B tests
+- [ ] Use SHAP and LIME for model explainability
+- [ ] Implement time series forecasting (ARIMA, Prophet)
+- [ ] Understand regulatory compliance in ML (GDPR, fairness)
+
+---
+
+## ➡️ Next Level
+
+After mastering applied DS, move to **[Level 6 — Deep Learning](../Level_6_Deep_Learning/)**.
