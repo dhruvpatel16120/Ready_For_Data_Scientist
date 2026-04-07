@@ -17,7 +17,7 @@
   <a href="#-roadmap-overview">📋 Roadmap</a> •
   <a href="#-how-to-use">📖 How to Use</a> •
   <a href="CONTRIBUTING.md">🤝 Contribute</a> •
-  <a href="index.html">🌐 Interactive Roadmap</a>
+  <a href="https://dhruvpatel16120.github.io/Ready_For_Data_Scientist/#level4">🌐 Interactive Roadmap</a>
 </p>
 
 ---
