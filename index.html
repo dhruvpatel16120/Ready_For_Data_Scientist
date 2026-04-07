@@ -13,6 +13,34 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="https://raw.githubusercontent.com/github/explore/main/topics/python/python.png" type="image/png">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          ds: {
+            bg: '#0b0615',
+            surface: '#140b24',
+            surface2: '#1c0e35',
+            border: '#2d1656',
+            accent: '#c084fc',
+            accent2: '#e879f9',
+            accent3: '#2dd4bf',
+            accent4: '#fbbf24',
+            accent5: '#f87171',
+            accent6: '#f472b6',
+            muted: '#a0aabf',
+          }
+        },
+        fontFamily: {
+          inter: ['Inter', 'sans-serif'],
+          outfit: ['Outfit', 'sans-serif'],
+        },
+      }
+    }
+  }
+</script>
 <link rel="stylesheet" href="/web/main.css">
 </head>
 <body>
@@ -936,7 +964,7 @@
             <div class="topic-item"><div class="topic-name">Rate Limiting & Cost</div><div class="topic-desc">Token budgets, caching (GPTCache, semantic cache), cost control</div></div>
             <div class="topic-item"><div class="topic-name">Human-in-the-Loop</div><div class="topic-desc">Approval gates, interrupt nodes, human feedback integration</div></div>
           </div>
-          <div class="tags" style="margin-top:10px;">
+          <div class="tags" style="margin-top:14px;">
             <span class="tag tag-yellow">LangGraph</span>
             <span class="tag tag-yellow">CrewAI</span>
             <span class="tag tag-yellow">n8n</span>
@@ -945,7 +973,7 @@
             <span class="tag tag-yellow">FastAPI</span>
             <span class="tag tag-yellow">Docker</span>
           </div>
-          <div class="info-box tip" style="margin-top:14px;">
+          <div class="info-box tip" style="margin-top:19px;">
             <strong>Flagship Project Idea</strong>
             Build a multi-agent "AI Career Counselor for Rural Youth" — extend UdaanSetu.AI into an agentic system: one agent for skill gap analysis, one for job searching (web tool), one for resume review, orchestrated by LangGraph, deployed via n8n webhooks, monitored in Langfuse.
           </div>
@@ -957,25 +985,97 @@
   </div>
   
   <!-- WHAT TO AVOID -->
-  <div style="margin-top:32px; padding:32px; background: rgba(239,68,68,0.04); border: 1px solid rgba(239,68,68,0.2); border-radius:4px;">
-    <div style="font-family:'Syne',sans-serif; font-size:1.1rem; font-weight:700; margin-bottom:16px; color: var(--accent5);">⛔ What to Avoid — From a 6-Year DS Practitioner</div>
-    <div class="topic-grid">
-      <div class="topic-item" style="border-color:rgba(239,68,68,0.2);"><div class="topic-name">Tutorial Hell</div><div class="topic-desc">Watching 100 tutorials without building anything. Always code along, always build.</div></div>
-      <div class="topic-item" style="border-color:rgba(239,68,68,0.2);"><div class="topic-name">Skipping Math</div><div class="topic-desc">Using sklearn without understanding what's inside. Leads to cargo-cult ML — dangerous in production.</div></div>
-      <div class="topic-item" style="border-color:rgba(239,68,68,0.2);"><div class="topic-name">Tool Hopping</div><div class="topic-desc">Switching frameworks every week. Go deep on PyTorch first before jumping to JAX or MXNet.</div></div>
-      <div class="topic-item" style="border-color:rgba(239,68,68,0.2);"><div class="topic-name">Skipping EDA</div><div class="topic-desc">Jumping to models without understanding the data. 70% of DS work is data, not models.</div></div>
-      <div class="topic-item" style="border-color:rgba(239,68,68,0.2);"><div class="topic-name">Ignoring Business Context</div><div class="topic-desc">A perfect model that doesn't solve the business problem is worthless.</div></div>
-      <div class="topic-item" style="border-color:rgba(239,68,68,0.2);"><div class="topic-name">No Version Control</div><div class="topic-desc">Not using Git from day 1. Every project, every experiment must be in Git.</div></div>
+  <div class="mt-12 relative overflow-hidden rounded-2xl border border-red-500/20 bg-gradient-to-br from-red-500/[0.03] via-ds-surface to-ds-surface p-8 md:p-10">
+    <!-- Decorative glow -->
+    <div class="absolute -top-20 -right-20 w-60 h-60 bg-red-500/5 rounded-full blur-3xl pointer-events-none"></div>
+    
+    <div class="flex items-center gap-3 mb-8">
+      <div class="flex items-center justify-center w-10 h-10 rounded-xl bg-red-500/10 border border-red-500/20 text-lg">⛔</div>
+      <div>
+        <h3 class="font-outfit text-xl font-bold text-ds-accent5 tracking-tight">What to Avoid</h3>
+        <p class="text-xs text-ds-muted font-inter mt-0.5">Mistakes to Avoid on Your Journey to Becoming a Data Scientist</p>
+      </div>
+    </div>
+    
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div class="group relative rounded-xl border border-red-500/10 bg-ds-surface2/60 p-5 transition-all duration-300 hover:border-red-500/30 hover:-translate-y-1 hover:shadow-lg hover:shadow-red-500/5">
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex items-center justify-center w-7 h-7 rounded-lg bg-red-500/10 text-red-400 text-xs font-bold font-inter">01</span>
+          <h4 class="font-inter font-bold text-sm text-white group-hover:text-ds-accent5 transition-colors">Tutorial Hell</h4>
+        </div>
+        <p class="text-xs text-ds-muted leading-relaxed font-inter">Watching 100 tutorials without building anything. Always code along, always build projects.</p>
+      </div>
+      <div class="group relative rounded-xl border border-red-500/10 bg-ds-surface2/60 p-5 transition-all duration-300 hover:border-red-500/30 hover:-translate-y-1 hover:shadow-lg hover:shadow-red-500/5">
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex items-center justify-center w-7 h-7 rounded-lg bg-red-500/10 text-red-400 text-xs font-bold font-inter">02</span>
+          <h4 class="font-inter font-bold text-sm text-white group-hover:text-ds-accent5 transition-colors">Skipping Math</h4>
+        </div>
+        <p class="text-xs text-ds-muted leading-relaxed font-inter">Using sklearn without understanding what's inside. Leads to cargo-cult ML — dangerous in production.</p>
+      </div>
+      <div class="group relative rounded-xl border border-red-500/10 bg-ds-surface2/60 p-5 transition-all duration-300 hover:border-red-500/30 hover:-translate-y-1 hover:shadow-lg hover:shadow-red-500/5">
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex items-center justify-center w-7 h-7 rounded-lg bg-red-500/10 text-red-400 text-xs font-bold font-inter">03</span>
+          <h4 class="font-inter font-bold text-sm text-white group-hover:text-ds-accent5 transition-colors">Tool Hopping</h4>
+        </div>
+        <p class="text-xs text-ds-muted leading-relaxed font-inter">Switching frameworks every week. Go deep on PyTorch first before jumping to JAX or MXNet.</p>
+      </div>
+      <div class="group relative rounded-xl border border-red-500/10 bg-ds-surface2/60 p-5 transition-all duration-300 hover:border-red-500/30 hover:-translate-y-1 hover:shadow-lg hover:shadow-red-500/5">
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex items-center justify-center w-7 h-7 rounded-lg bg-red-500/10 text-red-400 text-xs font-bold font-inter">04</span>
+          <h4 class="font-inter font-bold text-sm text-white group-hover:text-ds-accent5 transition-colors">Skipping EDA</h4>
+        </div>
+        <p class="text-xs text-ds-muted leading-relaxed font-inter">Jumping to models without understanding the data. 70% of DS work is data, not models.</p>
+      </div>
+      <div class="group relative rounded-xl border border-red-500/10 bg-ds-surface2/60 p-5 transition-all duration-300 hover:border-red-500/30 hover:-translate-y-1 hover:shadow-lg hover:shadow-red-500/5">
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex items-center justify-center w-7 h-7 rounded-lg bg-red-500/10 text-red-400 text-xs font-bold font-inter">05</span>
+          <h4 class="font-inter font-bold text-sm text-white group-hover:text-ds-accent5 transition-colors">Ignoring Business Context</h4>
+        </div>
+        <p class="text-xs text-ds-muted leading-relaxed font-inter">A perfect model that doesn't solve the business problem is worthless. Always start with "why."</p>
+      </div>
+      <div class="group relative rounded-xl border border-red-500/10 bg-ds-surface2/60 p-5 transition-all duration-300 hover:border-red-500/30 hover:-translate-y-1 hover:shadow-lg hover:shadow-red-500/5">
+        <div class="flex items-center gap-3 mb-3">
+          <span class="flex items-center justify-center w-7 h-7 rounded-lg bg-red-500/10 text-red-400 text-xs font-bold font-inter">06</span>
+          <h4 class="font-inter font-bold text-sm text-white group-hover:text-ds-accent5 transition-colors">No Version Control</h4>
+        </div>
+        <p class="text-xs text-ds-muted leading-relaxed font-inter">Not using Git from day 1 is big mistake. Every project, every experiment must be version controlled.</p>
+      </div>
     </div>
   </div>
   
   <!-- CTA SECTION -->
-  <div class="cta-section">
-    <h2>Ready to <span>Contribute?</span></h2>
-    <p>This Repo is an open-source project. Whether you're a beginner fixing a typo or an expert adding a new algorithm notebook, your contribution helps others learn.</p>
-    <div class="cta-buttons">
-      <a href="https://github.com/dhruvpatel16120/Ready_For_Data_Scientist/blob/main/CONTRIBUTING.md" target="_blank" class="cta-btn primary">📖 Read Contributing Guide</a>
-      <a href="https://github.com/dhruvpatel16120/Ready_For_Data_Scientist/issues" target="_blank" class="cta-btn secondary">🐛 Report an Issue</a>
+  <div class="mt-16 relative overflow-hidden rounded-3xl border border-ds-accent/20 bg-gradient-to-br from-purple-500/[0.06] via-ds-surface to-pink-500/[0.03] p-10 md:p-14 text-center">
+    <!-- Decorative elements -->
+    <div class="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-ds-accent to-transparent"></div>
+    <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute -bottom-20 -right-20 w-80 h-80 bg-pink-500/5 rounded-full blur-3xl pointer-events-none"></div>
+    
+    <div class="relative z-10">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-ds-accent/10 border border-ds-accent/20 mb-6">
+        <span class="w-2 h-2 rounded-full bg-ds-accent3 animate-pulse"></span>
+        <span class="text-xs font-semibold text-ds-accent font-inter tracking-wider uppercase">Open Source</span>
+      </div>
+      
+      <h2 class="font-outfit text-3xl md:text-4xl font-bold text-white tracking-tight mb-4">
+        Ready to <span class="bg-gradient-to-r from-ds-accent via-ds-accent2 to-ds-accent bg-clip-text text-transparent">Contribute?</span>
+      </h2>
+      <p class="text-ds-muted font-inter text-sm md:text-base max-w-lg mx-auto leading-relaxed mb-8">
+        This is a Open Source Project. I build this project to help Beginner to Learn Real World Skills from Scratch.if you have any suggestions or you want to contribute to this project, you can contribute to this project. 
+      </p>
+      
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="https://github.com/dhruvpatel16120/Ready_For_Data_Scientist/blob/main/CONTRIBUTING.md" target="_blank" 
+           class="group inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl bg-gradient-to-r from-ds-accent to-purple-600 text-white font-inter font-semibold text-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-purple-500/25 active:scale-95">
+          <span>📖</span>
+          <span>Read Contributing Guide</span>
+          <svg class="w-4 h-4 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+        </a>
+        <a href="https://github.com/dhruvpatel16120/Ready_For_Data_Scientist/issues" target="_blank" 
+           class="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl border border-ds-border bg-white/[0.02] backdrop-blur-sm text-ds-muted font-inter font-semibold text-sm transition-all duration-300 hover:border-ds-accent/40 hover:text-white hover:-translate-y-1 hover:shadow-lg">
+          <span>🐛</span>
+          <span>Report an Issue</span>
+        </a>
+      </div>
     </div>
   </div>
   
@@ -997,10 +1097,36 @@
 <!-- BACK TO TOP -->
 <button class="back-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑</button>
 
-<footer>
-  <p>Designed By <a href="https://github.com/dhruvpatel16120"><strong>Dhruv Patel</strong></a></p>
-  <p style="margin-top:8px;">Roadmap spans <strong>18–24 months</strong> of focused learning.</p>
-  <p style="margin-top:16px; font-family:'Space Mono',monospace; font-size:0.7rem; letter-spacing:1px;">LEVEL 0 → LEVEL 8 · FOUNDATION TO AGENTIC AI · 2026–2028</p>
+<!-- FOOTER -->
+<footer class="relative border-t border-ds-border/50 mt-10 overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-to-t from-purple-500/[0.02] to-transparent pointer-events-none"></div>
+  
+  <div class="relative z-10 max-w-5xl mx-auto px-4 py-10 text-center">
+    <!-- Logo / Brand -->
+    <div class="mb-6">
+      <h3 class="font-outfit text-3xl font-bold tracking-tight">
+        <span class="text-white">Zero to Data</span>
+        <span class="bg-gradient-to-r from-ds-accent to-ds-accent2 bg-clip-text text-transparent"> Scientist</span>
+      </h3>
+   <p class="text-ds-muted text-xs font-inter mt-2 tracking-wide">Build your data science career from scratch</p>
+    </div>
+    
+    <!-- Links -->
+    <div class="flex flex-wrap items-center justify-center gap-6 mb-8">
+      <a href="https://github.com/dhruvpatel16120/Ready_For_Data_Scientist" target="_blank" class="text-ds-muted hover:text-ds-accent transition-colors text-sm font-inter flex items-center gap-1.5">
+        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+        GitHub
+      </a>
+      <a href="https://github.com/dhruvpatel16120/Ready_For_Data_Scientist/blob/main/CONTRIBUTING.md" target="_blank" class="text-ds-muted hover:text-ds-accent transition-colors text-sm font-inter">Contribute</a>
+      <a href="https://github.com/dhruvpatel16120/Ready_For_Data_Scientist/issues" target="_blank" class="text-ds-muted hover:text-ds-accent transition-colors text-sm font-inter">Issues</a>
+      <a href="https://github.com/dhruvpatel16120" target="_blank" class="text-ds-muted hover:text-ds-accent transition-colors text-sm font-inter">@dhruvpatel16120</a>
+    </div>
+
+    <!-- Credits -->
+    <p class="text-ds-muted text-sm font-inter">
+      Designed by <a href="https://github.com/dhruvpatel16120" target="_blank" class="text-ds-accent hover:text-ds-accent2 transition-colors font-semibold">Dhruv Patel</a>
+    </p>
+  </div>
 </footer>
 
 <script src="/web/main.js"></script>
