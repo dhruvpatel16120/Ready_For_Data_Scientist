@@ -17,7 +17,7 @@
   <a href="#-roadmap-overview">📋 Roadmap</a> •
   <a href="#-how-to-use">📖 How to Use</a> •
   <a href="CONTRIBUTING.md">🤝 Contribute</a> •
-  <a href="https://dhruvpatel16120.github.io/Ready_For_Data_Scientist/">🌐 Interactive Roadmap</a>
+  <a href="https://dhruvpatel16120.github.io/Ready_For_Data_Scientist/">🌐 Roadmap</a>
 </p>
 
 ---
@@ -55,7 +55,7 @@ This repository is more than a personal learning journal — it's a **community 
 ```
 Ready_For_Data_Scientist/
 │
-├── 📄 index.html                      # Interactive visual roadmap (open in browser)
+├── 📄 index.html                      # roadmap (open in browser)
 ├── 📄 README.md                       # You are here!
 ├── 📄 CONTRIBUTING.md                 # How to contribute
 ├── 📄 LICENSE                         # MIT License
@@ -136,7 +136,7 @@ Ready_For_Data_Scientist/
 2. **Follow the order** — Each level builds on the previous one
 3. **Practice > Theory** — Run every notebook, modify every script, break things
 4. **Build projects** — Each level has project ideas. **Do them.**
-5. **Open the [Interactive Roadmap](index.html)** — Visual guide with all details
+5. **Open the [Roadmap](https://dhruvpatel16120.github.io/Ready_For_Data_Scientist)** — Visual guide with all details
 
 ### 🔬 For Contributors
 
