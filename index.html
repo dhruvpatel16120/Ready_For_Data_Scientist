@@ -92,8 +92,8 @@
         <div class="search-shortcut">
           <kbd>⌘</kbd><kbd>K</kbd>
         </div>
-        <div class="search-count" id="searchCount"></div>
       </div>
+      <div class="search-count" id="searchCount"></div>
 
     </div>
   </div>
@@ -120,197 +120,44 @@
         <button class="toggle-btn">+</button>
       </div>
       <div class="level-body">
-
-        <!-- LEVEL OVERVIEW BANNER -->
-        <div class="level-overview">
-          <div class="level-overview-header">
-            <div class="level-overview-icon">🎯</div>
-            <div>
-              <div class="level-overview-title">Level 0 — What You'll Master</div>
-              <div class="level-overview-desc">This level transforms you from an absolute beginner into someone who can write clean Python, think algorithmically, and understand the mathematics that powers every ML model. <strong>Skip nothing</strong> — this is the foundation everything is built on.</div>
-            </div>
-          </div>
-          <div class="level-overview-milestones">
-            <div class="milestone">
-              <div class="milestone-icon">🐍</div>
-              <div class="milestone-label">Python Fluency</div>
-              <div class="milestone-time">3–4 weeks</div>
-            </div>
-            <div class="milestone-connector">→</div>
-            <div class="milestone">
-              <div class="milestone-icon">🔗</div>
-              <div class="milestone-label">DSA Foundations</div>
-              <div class="milestone-time">3–4 weeks</div>
-            </div>
-            <div class="milestone-connector">→</div>
-            <div class="milestone">
-              <div class="milestone-icon">📐</div>
-              <div class="milestone-label">Math for DS</div>
-              <div class="milestone-time">3–4 weeks</div>
-            </div>
-            <div class="milestone-connector">→</div>
-            <div class="milestone milestone-final">
-              <div class="milestone-icon">✅</div>
-              <div class="milestone-label">Level 0 Complete</div>
-              <div class="milestone-time">Ready for Data!</div>
-            </div>
-          </div>
-        </div>
         
-        <!-- ═══════════════ PYTHON ═══════════════ -->
         <div class="section">
           <div class="section-title">🐍 Python Programming</div>
-          
-          <div class="info-box note">
-            <strong>Why Python First?</strong>
-            Python is the lingua franca of Data Science. Every library — NumPy, Pandas, TensorFlow, LangChain — is Python-native. Master this first, everything downstream becomes easier. You'll write Python every single day of your DS career.
-          </div>
-          
-          <div style="margin-top:16px;">
-            <div class="subsection-header">
-              <span class="subsection-badge subsection-badge-beginner">Beginner</span>
-              <span class="subsection-title">Core Python — Start Here</span>
-              <span class="subsection-time">⏱ ~2 weeks</span>
-            </div>
-            <div class="topic-grid">
-              <div class="topic-item"><div class="topic-header-row"><div class="topic-name">Variables & Data Types</div><span class="difficulty-badge diff-easy">Essential</span></div><div class="topic-desc">int, float, str, bool, type casting, type checking — the atoms of all programs</div></div>
-              <div class="topic-item"><div class="topic-header-row"><div class="topic-name">Operators</div><span class="difficulty-badge diff-easy">Essential</span></div><div class="topic-desc">Arithmetic, comparison, logical, bitwise, assignment operators</div></div>
-              <div class="topic-item"><div class="topic-header-row"><div class="topic-name">Control Flow</div><span class="difficulty-badge diff-easy">Essential</span></div><div class="topic-desc">if/elif/else, while loops, for loops, break/continue/pass</div></div>
-              <div class="topic-item"><div class="topic-header-row"><div class="topic-name">Functions</div><span class="difficulty-badge diff-easy">Essential</span></div><div class="topic-desc">def, return, *args, **kwargs, default arguments, scope (LEGB rule)</div></div>
-              <div class="topic-item"><div class="topic-header-row"><div class="topic-name">Data Structures</div><span class="difficulty-badge diff-medium">Important</span></div><div class="topic-desc">List, Tuple, Set, Dictionary — CRUD operations, comprehensions, nesting</div></div>
-              <div class="topic-item"><div class="topic-header-row"><div class="topic-name">String Manipulation</div><span class="difficulty-badge diff-easy">Essential</span></div><div class="topic-desc">Slicing, f-strings, string methods, regex basics for text processing</div></div>
-              <div class="topic-item"><div class="topic-header-row"><div class="topic-name">File I/O</div><span class="difficulty-badge diff-easy">Essential</span></div><div class="topic-desc">Reading/writing .txt, .csv, .json files — you'll do this constantly in DS</div></div>
-              <div class="topic-item"><div class="topic-header-row"><div class="topic-name">Error Handling</div><span class="difficulty-badge diff-medium">Important</span></div><div class="topic-desc">try/except/finally, custom exceptions, exception hierarchy</div></div>
-              <div class="topic-item"><div class="topic-header-row"><div class="topic-name">Modules & Packages</div><span class="difficulty-badge diff-easy">Essential</span></div><div class="topic-desc">import, pip, creating your own module, __init__.py</div></div>
-            </div>
-            
-            <div class="subsection-header" style="margin-top:28px;">
-              <span class="subsection-badge subsection-badge-intermediate">Intermediate</span>
-              <span class="subsection-title">Advanced Python — Level Up</span>
-              <span class="subsection-time">⏱ ~2 weeks</span>
-            </div>
-            <div class="topic-grid">
-              <div class="topic-item"><div class="topic-header-row"><div class="topic-name">OOP (Object Oriented Programming)</div><span class="difficulty-badge diff-hard">Advanced</span></div><div class="topic-desc">Classes, objects, __init__, inheritance, polymorphism, dunder methods — the backbone of every library you'll use</div></div>
-              <div class="topic-item"><div class="topic-header-row"><div class="topic-name">Decorators & Closures</div><span class="difficulty-badge diff-hard">Advanced</span></div><div class="topic-desc">@property, @staticmethod, @classmethod, function wrappers — used heavily in Flask/FastAPI</div></div>
-              <div class="topic-item"><div class="topic-header-row"><div class="topic-name">Generators & Iterators</div><span class="difficulty-badge diff-medium">Important</span></div><div class="topic-desc">yield, __iter__, __next__, lazy evaluation — essential for large dataset processing</div></div>
-              <div class="topic-item"><div class="topic-header-row"><div class="topic-name">Lambda & Functional</div><span class="difficulty-badge diff-medium">Important</span></div><div class="topic-desc">map(), filter(), reduce(), lambda expressions — clean data transformations</div></div>
-              <div class="topic-item"><div class="topic-header-row"><div class="topic-name">Context Managers</div><span class="difficulty-badge diff-medium">Important</span></div><div class="topic-desc">with statement, __enter__/__exit__, contextlib — proper resource management</div></div>
-              <div class="topic-item"><div class="topic-header-row"><div class="topic-name">Concurrency</div><span class="difficulty-badge diff-hard">Advanced</span></div><div class="topic-desc">threading, multiprocessing, asyncio — needed for API calls and data pipelines</div></div>
-              <div class="topic-item"><div class="topic-header-row"><div class="topic-name">Type Hints</div><span class="difficulty-badge diff-medium">Important</span></div><div class="topic-desc">typing module, annotations, mypy — industry standard in production DS code</div></div>
-              <div class="topic-item"><div class="topic-header-row"><div class="topic-name">Virtual Environments</div><span class="difficulty-badge diff-easy">Essential</span></div><div class="topic-desc">venv, conda, requirements.txt, dependency management — do this from day 1</div></div>
-              <div class="topic-item"><div class="topic-header-row"><div class="topic-name">Testing</div><span class="difficulty-badge diff-medium">Important</span></div><div class="topic-desc">unittest, pytest basics — essential for production ML pipelines</div></div>
-            </div>
-            
-            <div class="tags" style="margin-top:14px;">
-              <span class="tag tag-blue">Python 3.10+</span>
-              <span class="tag tag-blue">Jupyter Notebook</span>
-              <span class="tag tag-blue">VS Code</span>
-              <span class="tag tag-green">PyCharm</span>
-            </div>
-
-            <div class="checkpoint-box">
-              <div class="checkpoint-icon">🏗️</div>
-              <div class="checkpoint-content">
-                <div class="checkpoint-title">Checkpoint Project — Build This Before Moving On</div>
-                <div class="checkpoint-desc">Build a <strong>CLI-based Budget Tracker</strong> that reads/writes JSON, uses OOP for transaction objects, handles errors gracefully, and has pytest tests. If you can build this cleanly, you're ready for DSA.</div>
-              </div>
-            </div>
+          <div class="topic-grid">
+            <div class="topic-item"><div class="topic-name">Variables & Data Types</div><div class="topic-desc">int, float, str, bool, type casting — the atoms of all programs</div></div>
+            <div class="topic-item"><div class="topic-name">Control Flow</div><div class="topic-desc">if/else, while, for loops, break/continue — program logic</div></div>
+            <div class="topic-item"><div class="topic-name">Functions</div><div class="topic-desc">def, return, *args, **kwargs, scope (LEGB rule)</div></div>
+            <div class="topic-item"><div class="topic-name">Data Structures</div><div class="topic-desc">Lists, Tuples, Sets, Dictionaries — comprehensions & nesting</div></div>
+            <div class="topic-item"><div class="topic-name">OOP Foundations</div><div class="topic-desc">Classes, objects, inheritance, polymorphism, dunder methods</div></div>
+            <div class="topic-item"><div class="topic-name">Advanced Concepts</div><div class="topic-desc">Decorators, Generators, Closures, Context Managers</div></div>
+            <div class="topic-item"><div class="topic-name">Error Handling</div><div class="topic-desc">try/except/finally, custom exceptions — robust code</div></div>
+            <div class="topic-item"><div class="topic-name">Environment</div><div class="topic-desc">Pip, Virtual Environments (venv/conda), requirements.txt</div></div>
           </div>
         </div>
         
-        <!-- ═══════════════ DSA ═══════════════ -->
         <div class="section">
           <div class="section-title">🔗 Data Structures & Algorithms</div>
-          <div class="info-box warn">
-            <strong>Why DSA for Data Science?</strong>
-            DS interviews at top companies include DSA rounds. Understanding time/space complexity helps you write efficient data pipelines and choose the right algorithm. Think of DSA as "teaching your brain to think in patterns."
-          </div>
-
-          <div style="margin-top:16px;">
-            <div class="subsection-header">
-              <span class="subsection-badge subsection-badge-beginner">Core</span>
-              <span class="subsection-title">Essential Data Structures</span>
-              <span class="subsection-time">⏱ ~2 weeks</span>
-            </div>
-            <div class="topic-grid">
-              <div class="topic-item"><div class="topic-header-row"><div class="topic-name">Arrays & Strings</div><span class="difficulty-badge diff-easy">Essential</span></div><div class="topic-desc">Sliding window, two pointers, subarray problems — the most common interview pattern</div></div>
-              <div class="topic-item"><div class="topic-header-row"><div class="topic-name">Linked Lists</div><span class="difficulty-badge diff-medium">Important</span></div><div class="topic-desc">Singly, doubly, cycle detection, reversal — builds pointer intuition</div></div>
-              <div class="topic-item"><div class="topic-header-row"><div class="topic-name">Stack & Queue</div><span class="difficulty-badge diff-medium">Important</span></div><div class="topic-desc">Applications in parsing, BFS, expression evaluation</div></div>
-              <div class="topic-item"><div class="topic-header-row"><div class="topic-name">Hashing</div><span class="difficulty-badge diff-easy">Essential</span></div><div class="topic-desc">HashMap, HashSet, collision handling, frequency counting — O(1) lookups change everything</div></div>
-              <div class="topic-item"><div class="topic-header-row"><div class="topic-name">Trees</div><span class="difficulty-badge diff-medium">Important</span></div><div class="topic-desc">Binary trees, BST, tree traversals, height/depth problems</div></div>
-              <div class="topic-item"><div class="topic-header-row"><div class="topic-name">Graphs</div><span class="difficulty-badge diff-hard">Advanced</span></div><div class="topic-desc">BFS, DFS, adjacency matrix/list, connected components — used in network analysis</div></div>
-            </div>
-
-            <div class="subsection-header" style="margin-top:28px;">
-              <span class="subsection-badge subsection-badge-intermediate">Algorithms</span>
-              <span class="subsection-title">Core Algorithms & Complexity</span>
-              <span class="subsection-time">⏱ ~2 weeks</span>
-            </div>
-            <div class="topic-grid">
-              <div class="topic-item"><div class="topic-header-row"><div class="topic-name">Sorting Algorithms</div><span class="difficulty-badge diff-medium">Important</span></div><div class="topic-desc">Bubble, Merge, Quick, Heap sort — understand complexities and real-world trade-offs</div></div>
-              <div class="topic-item"><div class="topic-header-row"><div class="topic-name">Searching</div><span class="difficulty-badge diff-easy">Essential</span></div><div class="topic-desc">Binary search, search in rotated arrays — logarithmic thinking</div></div>
-              <div class="topic-item"><div class="topic-header-row"><div class="topic-name">Recursion & Backtracking</div><span class="difficulty-badge diff-hard">Advanced</span></div><div class="topic-desc">Base cases, recursive trees, memoization intro — the gateway to DP</div></div>
-              <div class="topic-item"><div class="topic-header-row"><div class="topic-name">Dynamic Programming (Basics)</div><span class="difficulty-badge diff-hard">Advanced</span></div><div class="topic-desc">Fibonacci, knapsack, LCS — memoization & tabulation patterns</div></div>
-              <div class="topic-item"><div class="topic-header-row"><div class="topic-name">Big-O Complexity</div><span class="difficulty-badge diff-easy">Essential</span></div><div class="topic-desc">Time & space complexity analysis — the most critical thinking skill in engineering</div></div>
-            </div>
-          </div>
-
-          <div class="info-box tip" style="margin-top:14px;">
-            <strong>Practical Target</strong>
-            Solve 80–100 problems on LeetCode (Easy/Medium) focusing on arrays, strings, hashmaps. This is sufficient for DS roles. You don't need competitive programming level — focus on pattern recognition.
-          </div>
-
-          <div class="resource-box">
-            <div class="resource-title">📚 Recommended Resources</div>
-            <div class="resource-grid">
-              <div class="resource-item"><span class="resource-type">📺 Video</span><span class="resource-name">NeetCode 150 (YouTube)</span></div>
-              <div class="resource-item"><span class="resource-type">📖 Book</span><span class="resource-name">Grokking Algorithms</span></div>
-              <div class="resource-item"><span class="resource-type">🌐 Practice</span><span class="resource-name">LeetCode (Easy → Medium)</span></div>
-              <div class="resource-item"><span class="resource-type">📺 Video</span><span class="resource-name">Abdul Bari (YouTube)</span></div>
-            </div>
+          <div class="topic-grid">
+            <div class="topic-item"><div class="topic-name">Linear DS</div><div class="topic-desc">Arrays, Strings, Linked Lists, Stacks & Queues</div></div>
+            <div class="topic-item"><div class="topic-name">Hashing</div><div class="topic-desc">HashMap, HashSet, collision handling, O(1) lookups</div></div>
+            <div class="topic-item"><div class="topic-name">Non-Linear DS</div><div class="topic-desc">Binary Trees, BST, Graphs (BFS/DFS), Heaps</div></div>
+            <div class="topic-item"><div class="topic-name">Algorithms</div><div class="topic-desc">Sorting, Binary Search, Recursion, Dynamic Programming</div></div>
+            <div class="topic-item"><div class="topic-name">Complexity</div><div class="topic-desc">Big-O notation, time and space complexity analysis</div></div>
           </div>
         </div>
-        
-        <!-- ═══════════════ MATHEMATICS ═══════════════ -->
+
         <div class="section">
           <div class="section-title">📐 Mathematics for Data Science</div>
-          
-          <div class="info-box note">
-            <strong>Math Makes or Breaks You</strong>
-            Every ML algorithm is math under the hood. Linear Regression? Matrix operations. Neural Networks? Calculus + Linear Algebra. A/B Testing? Statistics. You don't need a PhD, but you need strong intuition.
-          </div>
-
-          <div style="margin-top:16px;">
-            <div class="topic-grid">
-              <div class="topic-item topic-item-featured"><div class="topic-header-row"><div class="topic-name">📊 Linear Algebra</div><span class="difficulty-badge diff-hard">Critical</span></div><div class="topic-desc">Vectors, matrices, multiplication, transpose, inverse, determinant, eigenvalues & eigenvectors, SVD, dot product, projections</div><div class="topic-why"><strong>Why:</strong> Core of ML — weights are matrices. PCA, neural networks, and embeddings all use linear algebra.</div></div>
-              <div class="topic-item topic-item-featured"><div class="topic-header-row"><div class="topic-name">🎲 Probability</div><span class="difficulty-badge diff-hard">Critical</span></div><div class="topic-desc">Sample space, events, conditional probability, Bayes' theorem, independence, random variables, PMF/PDF/CDF, joint & marginal distributions</div><div class="topic-why"><strong>Why:</strong> Foundation of ML models — Naive Bayes, probabilistic classifiers, uncertainty estimation.</div></div>
-              <div class="topic-item topic-item-featured"><div class="topic-header-row"><div class="topic-name">📈 Statistics</div><span class="difficulty-badge diff-hard">Critical</span></div><div class="topic-desc">Descriptive stats, inferential stats, distributions (Normal, Binomial, Poisson), hypothesis testing, p-value, confidence intervals, correlation</div><div class="topic-why"><strong>Why:</strong> Data analysis, A/B testing, understanding model outputs, and EDA all need solid stats.</div></div>
-              <div class="topic-item topic-item-featured"><div class="topic-header-row"><div class="topic-name">∫ Calculus</div><span class="difficulty-badge diff-medium">Important</span></div><div class="topic-desc">Derivatives, chain rule, partial derivatives, gradient, gradient descent intuitively, minima/maxima, cost function optimization</div><div class="topic-why"><strong>Why:</strong> Backpropagation in neural networks, optimization algorithms (SGD, Adam).</div></div>
-            </div>
+          <div class="topic-grid">
+            <div class="topic-item"><div class="topic-name">Linear Algebra</div><div class="topic-desc">Vectors, Matrices, Eigenvalues, SVD, Dot Products</div></div>
+            <div class="topic-item"><div class="topic-name">Calculus</div><div class="topic-desc">Derivatives, Chain Rule, Gradients, Partial Derivatives</div></div>
+            <div class="topic-item"><div class="topic-name">Probability</div><div class="topic-desc">Bayes' Theorem, Conditional Probability, Random Variables</div></div>
+            <div class="topic-item"><div class="topic-name">Statistics</div><div class="topic-desc">Hypothesis Testing, p-values, Normal Distribution, Correlation</div></div>
           </div>
           
-          <div class="resource-box">
-            <div class="resource-title">📚 Gold-Standard Resources</div>
-            <div class="resource-grid">
-              <div class="resource-item"><span class="resource-type">📺 Video</span><span class="resource-name">3Blue1Brown — Essence of Linear Algebra</span></div>
-              <div class="resource-item"><span class="resource-type">📺 Video</span><span class="resource-name">3Blue1Brown — Essence of Calculus</span></div>
-              <div class="resource-item"><span class="resource-type">📺 Video</span><span class="resource-name">StatQuest by Josh Starmer</span></div>
-              <div class="resource-item"><span class="resource-type">📖 Book</span><span class="resource-name">Mathematics for Machine Learning (free PDF)</span></div>
-            </div>
-          </div>
-
-          <div class="info-box tip" style="margin-top:14px;">
-            <strong>Pro Tip — Visual Learning</strong>
-            Don't just memorize formulas. Watch 3Blue1Brown for visual intuition, then do problems by hand, then implement in Python using NumPy. This three-step loop builds deep understanding that survives interviews.
-          </div>
-        </div>
-
-        <!-- FINAL LEVEL CHECKPOINT -->
-        <div class="checkpoint-box checkpoint-box-final">
-          <div class="checkpoint-icon">🎓</div>
-          <div class="checkpoint-content">
-            <div class="checkpoint-title">Level 0 Completion Checklist</div>
-            <div class="checkpoint-desc">Before moving to Level 1, make sure you can: ✅ Write a Python class with inheritance · ✅ Solve a medium LeetCode problem in 30 min · ✅ Explain eigenvalues intuitively · ✅ Calculate Bayes' Theorem by hand · ✅ Understand gradient descent without formulas. If yes, you're <strong>truly ready</strong>.</div>
+          <div class="info-box tip" style="margin-top:24px;">
+            <strong>Flagship Project Idea</strong>
+            <p style="margin-top: 8px;">Build a <span class="project-name">"CLI Budget & Expense Intelligence"</span> — A comprehensive terminal app using OOP principles. Implement data persistence with JSON, custom exceptions for error handling, and a module-based structure. <b>Tech:</b> Python, OOP, JSON, and Pytest.</p>
           </div>
         </div>
         
@@ -334,50 +181,39 @@
         <div class="section">
           <div class="section-title">🔢 NumPy — Numerical Computing</div>
           <div class="topic-grid">
-            <div class="topic-item"><div class="topic-name">ndarray Creation</div><div class="topic-desc">np.array(), np.zeros(), np.ones(), np.arange(), np.linspace(), np.random</div></div>
-            <div class="topic-item"><div class="topic-name">Array Attributes</div><div class="topic-desc">shape, dtype, ndim, size, itemsize</div></div>
-            <div class="topic-item"><div class="topic-name">Indexing & Slicing</div><div class="topic-desc">1D, 2D, 3D slicing, boolean indexing, fancy indexing</div></div>
-            <div class="topic-item"><div class="topic-name">Reshaping</div><div class="topic-desc">reshape(), flatten(), ravel(), squeeze(), expand_dims()</div></div>
-            <div class="topic-item"><div class="topic-name">Broadcasting</div><div class="topic-desc">Shape compatibility rules, automatic expansion — CRITICAL concept</div></div>
-            <div class="topic-item"><div class="topic-name">Mathematical Ops</div><div class="topic-desc">Element-wise ops, np.dot(), np.matmul(), ufuncs, np.linalg</div></div>
-            <div class="topic-item"><div class="topic-name">Aggregation</div><div class="topic-desc">sum, mean, std, min, max, argmin, argmax — with axis param</div></div>
-            <div class="topic-item"><div class="topic-name">Stacking & Splitting</div><div class="topic-desc">np.concatenate(), np.vstack(), np.hstack(), np.split()</div></div>
-            <div class="topic-item"><div class="topic-name">Sorting & Searching</div><div class="topic-desc">np.sort(), np.argsort(), np.where(), np.unique()</div></div>
-            <div class="topic-item"><div class="topic-name">Random Module</div><div class="topic-desc">np.random.seed(), rand, randn, randint, shuffle, choice</div></div>
-            <div class="topic-item"><div class="topic-name">Vectorization</div><div class="topic-desc">Why loops are slow; vectorized operations for speed</div></div>
-            <div class="topic-item"><div class="topic-name">Memory Views</div><div class="topic-desc">Views vs copies, memory efficiency, strides</div></div>
+            <div class="topic-item"><div class="topic-name">Array Creation</div><div class="topic-desc">np.array(), zeros(), ones(), arange(), linspace(), random.randn()</div></div>
+            <div class="topic-item"><div class="topic-name">Indexing & Slicing</div><div class="topic-desc">Boolean indexing, fancy indexing, multidimensional slicing</div></div>
+            <div class="topic-item"><div class="topic-name">Broadcasting</div><div class="topic-desc">Vectorization, shape compatibility rules, memory efficiency</div></div>
+            <div class="topic-item"><div class="topic-name">Linear Algebra</div><div class="topic-desc">Matrix multiplication (np.matmul), dot products, inverse, determinants</div></div>
           </div>
         </div>
         
         <div class="section">
           <div class="section-title">🐼 Pandas — Data Manipulation</div>
           <div class="topic-grid">
-            <div class="topic-item"><div class="topic-name">Series & DataFrame</div><div class="topic-desc">Creation, index, columns, dtypes, info(), describe()</div></div>
-            <div class="topic-item"><div class="topic-name">Reading Data</div><div class="topic-desc">read_csv(), read_excel(), read_json(), read_sql(), read_parquet()</div></div>
-            <div class="topic-item"><div class="topic-name">Indexing</div><div class="topic-desc">loc[], iloc[], at[], iat[], boolean masking</div></div>
-            <div class="topic-item"><div class="topic-name">Data Cleaning</div><div class="topic-desc">isnull(), fillna(), dropna(), duplicated(), drop_duplicates()</div></div>
-            <div class="topic-item"><div class="topic-name">String Operations</div><div class="topic-desc">str accessor — split, strip, contains, replace, extract</div></div>
-            <div class="topic-item"><div class="topic-name">Datetime Handling</div><div class="topic-desc">to_datetime(), dt accessor, resample(), date_range()</div></div>
-            <div class="topic-item"><div class="topic-name">GroupBy & Aggregation</div><div class="topic-desc">groupby(), agg(), transform(), apply(), pivot_table()</div></div>
-            <div class="topic-item"><div class="topic-name">Merging & Joining</div><div class="topic-desc">merge(), join(), concat() — inner/outer/left/right</div></div>
-            <div class="topic-item"><div class="topic-name">Reshaping</div><div class="topic-desc">melt(), stack(), unstack(), pivot()</div></div>
-            <div class="topic-item"><div class="topic-name">Apply & Map</div><div class="topic-desc">apply(), map(), applymap() — custom transformations</div></div>
-            <div class="topic-item"><div class="topic-name">Feature Engineering</div><div class="topic-desc">Creating new columns, binning, encoding, scaling with Pandas</div></div>
-            <div class="topic-item"><div class="topic-name">Performance</div><div class="topic-desc">vectorized ops, avoid for-loops, use .query(), category dtype</div></div>
+            <div class="topic-item"><div class="topic-name">DataFrames & Series</div><div class="topic-desc">Creation, indexing (loc/iloc), dtypes, and statistics (describe/info)</div></div>
+            <div class="topic-item"><div class="topic-name">Data Cleaning</div><div class="topic-desc">Handling nulls (fillna/dropna), duplicates, and string operations</div></div>
+            <div class="topic-item"><div class="topic-name">GroupBy & Aggs</div><div class="topic-desc">Pivot tables, multi-indexing, aggregation functions, transformation</div></div>
+            <div class="topic-item"><div class="topic-name">Time Series</div><div class="topic-desc">Date conversion, resampling, rolling windows, shift/diff operations</div></div>
+            <div class="topic-item"><div class="topic-name">Merging Data</div><div class="topic-desc">Inner/Outer/Left/Right joins, concatenations, overlapping keys</div></div>
           </div>
         </div>
         
         <div class="section">
-          <div class="section-title">📚 Data Science Theory Fundamentals</div>
+          <div class="section-title">📚 DS Theory Fundamentals</div>
           <div class="topic-grid">
-            <div class="topic-item"><div class="topic-name">What is Data Science?</div><div class="topic-desc">Definition, scope, difference from ML/AI/Analytics</div></div>
-            <div class="topic-item"><div class="topic-name">Types of Data</div><div class="topic-desc">Structured, Semi-structured, Unstructured; Nominal, Ordinal, Interval, Ratio</div></div>
-            <div class="topic-item"><div class="topic-name">Data Quality</div><div class="topic-desc">Accuracy, completeness, consistency, timeliness</div></div>
-            <div class="topic-item"><div class="topic-name">Data Preprocessing Pipeline</div><div class="topic-desc">Missing values, outliers, encoding, normalization, scaling</div></div>
-            <div class="topic-item"><div class="topic-name">Feature Engineering</div><div class="topic-desc">Domain-driven features, interaction terms, polynomial features</div></div>
-            <div class="topic-item"><div class="topic-name">Dimensionality Reduction</div><div class="topic-desc">PCA intro, curse of dimensionality, feature selection</div></div>
+            <div class="topic-item"><div class="topic-name">Preprocessing</div><div class="topic-desc">Scaling (MinMax/Standard), encoding (One-Hot/Label), outliers</div></div>
+            <div class="topic-item"><div class="topic-name">Feature Engineering</div><div class="topic-desc">Interaction terms, binning, polynomial features, log transformation</div></div>
+            <div class="topic-item"><div class="topic-name">DS Lifecycle</div><div class="topic-desc">CRISP-DM overview, problem definition, data acquisition</div></div>
+          </div>
+          
+          <div class="info-box tip" style="margin-top:24px;">
+            <strong>Flagship Project Idea</strong>
+            <p style="margin-top: 8px;">Build a <span class="project-name">"Real-Estate Analytics Pipeline"</span> — Use NumPy and Pandas to clean a raw housing dataset. Handle missing locations, engineer features like "Price per SqFt", and perform deep segment analysis. <b>Tech:</b> Pandas, NumPy, and Matplotlib.</p>
           </div>
         </div>
+        
+      </div>
         
       </div>
     </div>
@@ -454,9 +290,9 @@
             <div class="topic-item"><div class="topic-name">Calculated Fields</div><div class="topic-desc">Basic formulas, LOD expressions (FIXED, INCLUDE, EXCLUDE)</div></div>
             <div class="topic-item"><div class="topic-name">Dashboard Design</div><div class="topic-desc">Layouts, actions, publishing to Tableau Public</div></div>
           </div>
-          <div class="info-box tip" style="margin-top:14px;">
-            <strong>Project Idea</strong>
-            Build an end-to-end dashboard: load a real Kaggle dataset → clean with Pandas → visualize in Seaborn for EDA → build a Power BI / Tableau dashboard for business reporting.
+          <div class="info-box tip" style="margin-top:24px;">
+            <strong>Flagship Project Idea</strong>
+            <p style="margin-top: 8px;">Build a <span class="project-name">"Global Trade & Economics Storyteller"</span> — An interactive multi-page dashboard. Ingest real-world data from World Bank or Kaggle, perform advanced cleaning, and build a suite of interconnected charts highlighting global trends. <b>Tech:</b> Python, Seaborn, Plotly/Dash, or Tableau/PowerBI.</p>
           </div>
         </div>
         
@@ -536,6 +372,10 @@
             <span class="tag tag-yellow">AWS Free Tier</span>
             <span class="tag tag-yellow">GCP Free Tier</span>
             <span class="tag tag-yellow">Azure Student Credits</span>
+          </div>
+          <div class="info-box tip" style="margin-top:24px;">
+            <strong>Flagship Project Idea</strong>
+            <p style="margin-top: 8px;">Build a <span class="project-name">"Data Warehouse Migration & Analytics Engine"</span> — Architect a schema for a million-scale database, implement complex window functions for user behavior analysis, and build an ETL bridge to BigQuery or Snowflake. <b>Tech:</b> PostgreSQL, dbt, Apache Spark, and GCP/AWS.</p>
           </div>
         </div>
         
@@ -625,9 +465,12 @@
             <span class="tag tag-red">Scikit-learn</span>
             <span class="tag tag-red">XGBoost</span>
             <span class="tag tag-red">LightGBM</span>
-            <span class="tag tag-red">CatBoost</span>
             <span class="tag tag-red">Optuna</span>
             <span class="tag tag-red">MLflow</span>
+          </div>
+          <div class="info-box tip" style="margin-top:24px;">
+            <strong>Flagship Project Idea</strong>
+            <p style="margin-top: 8px;">Build a <span class="project-name">"Loan Default Predictor"</span> — A complete ML pipeline using <b>XGBoost/LightGBM</b>. Perform deep EDA, handle imbalanced data, tune hyperparameters with <b>Optuna</b>, and serve the model via <b>FastAPI</b>. <b>Tech:</b> Scikit-learn, Optuna, FastAPI, and Docker.</p>
           </div>
         </div>
         
@@ -695,6 +538,10 @@
             <div class="topic-item"><div class="topic-name">Time Series Analysis</div><div class="topic-desc">ARIMA, SARIMA, Prophet, trend/seasonality decomposition</div></div>
             <div class="topic-item"><div class="topic-name">NLP Basics</div><div class="topic-desc">Text preprocessing, TF-IDF, word embeddings (Word2Vec), sentiment</div></div>
             <div class="topic-item"><div class="topic-name">Model Explainability</div><div class="topic-desc">SHAP values, LIME, feature importance, partial dependence plots</div></div>
+          </div>
+          <div class="info-box tip" style="margin-top:24px;">
+            <strong>Flagship Project Idea</strong>
+            <p style="margin-top: 8px;">Build an <span class="project-name">"E-commerce Growth Engine"</span> — A comprehensive system that predicts customer churn, estimates <b>Lifetime Value (CLV)</b>, and performs <b>RFM Segmentation</b> to drive marketing strategy. <b>Tech:</b> Pandas, Lifetimes, Streamlit, and SQL.</p>
           </div>
         </div>
         
@@ -776,9 +623,13 @@
           <div class="tags" style="margin-top:10px;">
             <span class="tag tag-purple">PyTorch</span>
             <span class="tag tag-purple">TensorFlow/Keras</span>
+            <span class="tag tag-purple">OpenCV</span>
             <span class="tag tag-purple">Hugging Face</span>
             <span class="tag tag-purple">CUDA / GPU</span>
-            <span class="tag tag-purple">Weights & Biases</span>
+          </div>
+          <div class="info-box tip" style="margin-top:24px;">
+            <strong>Flagship Project Idea</strong>
+            <p style="margin-top: 8px;">Build a <span class="project-name">"Real-Time Vision Edge Intelligence"</span> system. Combine <b>OpenCV</b> for frame processing with a custom <b>CNN/MobileNet</b> for tasks like Hand Gesture Control, Face Mask Detection, or Driver Drowsiness Monitoring. <b>Tech:</b> PyTorch/TensorFlow, OpenCV, and Mediapipe.</p>
           </div>
         </div>
         
@@ -869,9 +720,9 @@
             <div class="topic-item"><div class="topic-name">Scaling</div><div class="topic-desc">Flash Attention, gradient checkpointing, ZeRO optimization</div></div>
             <div class="topic-item"><div class="topic-name">Reference Project</div><div class="topic-desc">Karpathy's nanoGPT — build a 124M param model on your dataset</div></div>
           </div>
-          <div class="info-box tip" style="margin-top:14px;">
-            <strong>Your UdaanSetu.AI Edge</strong>
-            Your RAG-based chatbot is a perfect Level 7 project. Now extend it: add fine-tuning on domain data, swap to a local model with Ollama, evaluate with RAGAS, and benchmark against GPT-4o.
+          <div class="info-box tip" style="margin-top:20px;">
+            <strong>Flagship Project Idea</strong>
+            <p style="margin-top: 8px;">Build a <span class="project-name">"Multimodal Healthcare Intelligence System"</span> — An engine that ingests medical PDFs, scans (images), and audio notes. Implement Hybrid Search, Re-ranking, and Citations. Use a "Self-RAG" loop to verify medical facts before responding. <b>Tech:</b> LlamaIndex, Qdrant, OpenAI, and a Next.js Dashboard.</p>
           </div>
         </div>
         
@@ -973,9 +824,9 @@
             <span class="tag tag-yellow">FastAPI</span>
             <span class="tag tag-yellow">Docker</span>
           </div>
-          <div class="info-box tip" style="margin-top:19px;">
+          <div class="info-box tip" style="margin-top:24px;">
             <strong>Flagship Project Idea</strong>
-            Build a multi-agent "AI Career Counselor for Rural Youth" — extend UdaanSetu.AI into an agentic system: one agent for skill gap analysis, one for job searching (web tool), one for resume review, orchestrated by LangGraph, deployed via n8n webhooks, monitored in Langfuse.
+            <p style="margin-top: 8px;">Build an <span class="project-name">"Autonomous Market-Research & Investment Swarm"</span> — Orchestrate a crew of specialized agents (Lead Researcher, Financial Analyst, Strategic Advisor) using LangGraph. Empower agents with tools via <b>MCP</b> to fetch market data and browse the web. The swarm autonomously generates deep-dive reports. <b>Tech:</b> CrewAI, LangGraph, n8n, and Langfuse.</p>
           </div>
         </div>
         

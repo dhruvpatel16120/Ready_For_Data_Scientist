@@ -305,6 +305,7 @@ body {
   opacity: 0;
   transform: translateY(20px);
   animation: heroFadeUp 0.8s ease forwards 1.15s;
+  z-index: 30; /* Ensure it stays above everything */
 }
 
 .search-icon-wrap {
@@ -315,13 +316,13 @@ body {
   display: flex;
   align-items: center;
   pointer-events: none;
-  z-index: 2;
+  z-index: 31;
 }
 
 .search-wrap input {
   width: 100%;
   padding: 16px 100px 16px 50px;
-  background: rgba(20, 11, 36, 0.6);
+  background: rgba(14, 8, 24, 0.95); /* More opaque to block background noise */
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(192, 132, 252, 0.12);
@@ -369,10 +370,18 @@ body {
   font-family: 'Inter', sans-serif;
   font-size: 0.75rem;
   color: var(--accent);
-  margin-top: 10px;
-  letter-spacing: 0.3px;
+  margin-top: 16px; /* Increased margin */
+  letter-spacing: 0.5px;
   display: none;
-  font-weight: 500;
+  font-weight: 600;
+  text-transform: uppercase;
+  background: rgba(11, 6, 21, 0.4); /* Subtle background for contrast */
+  padding: 4px 12px;
+  border-radius: 100px;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid rgba(192, 132, 252, 0.1);
 }
 
 .search-count.visible { display: block; }
@@ -898,7 +907,27 @@ body {
 .info-box.warn { border-color: var(--accent4); background: rgba(245,158,11,0.06); }
 .info-box.note { border-color: var(--accent); background: rgba(0,212,255,0.06); }
 
-.info-box strong { display: block; margin-bottom: 4px; font-family: 'Syne', sans-serif; font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; }
+.info-box strong { 
+  display: block; 
+  margin-bottom: 6px; 
+  font-family: 'Outfit', sans-serif; 
+  font-size: 0.75rem; 
+  letter-spacing: 1.2px; 
+  text-transform: uppercase; 
+  color: var(--text);
+  opacity: 0.9;
+}
+
+/* Specific styling for project names within info boxes */
+.info-box .project-name {
+  display: inline;
+  color: #fff;
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 0.9rem;
+  font-weight: 700;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
 
 /* TABLE */
 .ds-table { width: 100%; border-collapse: collapse; font-size: 0.83rem; margin-top: 12px; }
