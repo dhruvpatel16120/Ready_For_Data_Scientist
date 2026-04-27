@@ -60,7 +60,7 @@ print("Concatenated tuple (a + b):", tuple_c)
 t = (1, 2, 3)
 t = t + (4,)
 print(t)
-Output:(1, 2, 3, 4)
+# Output:(1, 2, 3, 4)
 
 # Important detail
 # (4,) is a single-element tuple. The comma is required. Without it:
